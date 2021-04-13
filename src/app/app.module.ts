@@ -9,6 +9,8 @@ import { FooterComponent } from './components/main-layout/footer/footer.componen
 import { CoursesComponent } from './components/student/courses/courses.component';
 import { CreateGroupComponent } from './components/teacher/create-group/create-group.component';
 import { FormsModule } from '@angular/forms';
+import { ReservationComponent } from './components/student/reservation/reservation.component';
+import { StudentcourseComponent } from './components/student/studentcourse/studentcourse.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     CoursesComponent,
     CreateGroupComponent,
+    ReservationComponent,
+    StudentcourseComponent,
   ],
   imports: [
     BrowserModule,
