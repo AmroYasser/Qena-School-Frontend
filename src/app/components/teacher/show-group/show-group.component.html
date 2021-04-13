@@ -1,0 +1,13 @@
+<form>
+    <label>Title</label>
+    <input [(ngModel)]="post_title" type="text" name='title'>
+    <label>Content</label>
+    <input [(ngModel)]="post_content" type="" name='content'>
+    <label for="groups">Select a group:</label>
+    <select [(ngModel)]="group_id" name='groups'>
+        <option *ngFor="let group of groups" [value]="group.id">
+            {{group.name}}
+        </option>
+    </select>
+    <input type="submit" (click)='addPost()'>
+</form>
