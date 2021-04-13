@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/main-layout/navbar/navbar.component';
 import { FooterComponent } from './components/main-layout/footer/footer.component';
 import { CoursesComponent } from './components/student/courses/courses.component';
+import { CreateGroupComponent } from './components/teacher/create-group/create-group.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { CoursesComponent } from './components/student/courses/courses.component
     NavbarComponent,
     FooterComponent,
     CoursesComponent,
+    CreateGroupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
