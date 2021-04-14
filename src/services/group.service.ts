@@ -11,10 +11,11 @@ export class GroupService {
 
   constructor(private _http: HttpClient) { }
 
-  getGroup(): Observable<ICourse> {
-    // group id is placeholder
-    return this._http.get<ICourse>('http://127.0.0.1:8000/course-group/1');
+  getGroup(group_id: number): Observable<ICourse> {
+    return this._http.get<ICourse>(`http://127.0.0.1:8000/course-group/${group_id}`);
   }
+
+
   addPost(post: Ipost): Observable<Ipost> {
     const httpOptions = {
       headers: new HttpHeaders({

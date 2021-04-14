@@ -1,13 +1,43 @@
-<form>
-    <label>Title</label>
-    <input [(ngModel)]="post_title" type="text" name='title'>
-    <label>Content</label>
-    <input [(ngModel)]="post_content" type="" name='content'>
-    <label for="groups">Select a group:</label>
-    <select [(ngModel)]="group_id" name='groups'>
-        <option *ngFor="let group of groups" [value]="group.id">
-            {{group.name}}
-        </option>
-    </select>
-    <input type="submit" (click)='addPost()'>
-</form>
+<h1></h1>
+<h3></h3>
+<h3></h3>
+<h3></h3>
+
+
+
+<div class="container">
+    <div class="card bg-light mb-3" style="max-width: 20rem;">
+        <div class="card-header">المجموعة: {{group.name}} </div>
+        <div class="card-body">
+            <h5 class="card-title">الصف: {{group.level}}</h5>
+            <h5 class="card-title">أ\{{group.teacher.name}}</h5>
+            <p class="card-text">المواعيد: {{group.schedule}}</p>
+            <p class="card-text"> موعد البدء: {{group.start_date}}</p>
+        </div>
+    </div>
+    <div class="row" id="row_style">
+        <div class="col-md-4 offset-md-4">
+            <h4 class="text-center">أضف منشور جديد للطلاب</h4>
+            <div class="form-group">
+                <input #title type="text" [(ngModel)]="post_title" placeholder="العنوان" class="form-control">
+            </div>
+            <textarea #content [(ngModel)]="post_content" id="editor" class="form-control" cols="30" rows="10"
+                placeholder=" أكتب محتوى المنشور هنا..."></textarea>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-primary" id="submit" (click)='addPost()'>نــشر</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #row_style {
+        margin-top: 30px;
+    }
+
+    #submit {
+        display: block;
+        margin: auto;
+    }
+</style>
