@@ -4,13 +4,15 @@ import { CoursesComponent } from './components/student/courses/courses.component
 import { CreateGroupComponent } from './components/teacher/create-group/create-group.component';
 import { ReservationComponent } from './components/student/reservation/reservation.component';
 import { StudentcourseComponent } from './components/student/studentcourse/studentcourse.component';
+import { ShowTeacherComponent } from './components/teacher/show-teacher/show-teacher.component';
 
 const routes: Routes = [
   { path: 'home', component: CoursesComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'create-group', component: CreateGroupComponent },
-  {path:'reserve',component:ReservationComponent},
-  {path:'student-course',component:StudentcourseComponent}
+  { path: 'reserve', component: ReservationComponent },
+  { path: 'student-course', component: StudentcourseComponent },
+  { path: 'show-teacher/:id', component: ShowTeacherComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
