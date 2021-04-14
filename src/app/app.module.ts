@@ -11,6 +11,7 @@ import { CreateGroupComponent } from './components/teacher/create-group/create-g
 import { FormsModule } from '@angular/forms';
 import { ReservationComponent } from './components/student/reservation/reservation.component';
 import { StudentcourseComponent } from './components/student/studentcourse/studentcourse.component';
+import { ShowGroupComponent } from './components/teacher/show-group/show-group.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { StudentcourseComponent } from './components/student/studentcourse/stude
     CreateGroupComponent,
     ReservationComponent,
     StudentcourseComponent,
+    ShowGroupComponent,
   ],
   imports: [
     BrowserModule,

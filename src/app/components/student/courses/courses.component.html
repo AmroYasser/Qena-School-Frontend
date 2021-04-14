@@ -4,7 +4,7 @@
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
                     <h5 class="card-title font-weight-bold">{{course.name}}</h5>
-                    <p class="card-text">أ\{{course.teacher.name}}</p> <a [routerLink]="['/about']"
+                    <p class="card-text">أ\{{course.teacher.name}}</p> <a [routerLink]="['/tgroup/', course.id]"
                         class="btn details px-auto">عرض
                         التفاصيل</a><br /> <a [routerLink]="['/reserve']" class="btn cart px-auto">حجز</a>
                 </div>
