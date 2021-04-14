@@ -18,7 +18,8 @@ export class CoursesComponent implements OnInit {
     },
       (err) => {
         console.log(err)
-      })
+      }
+    )
   }
 
 

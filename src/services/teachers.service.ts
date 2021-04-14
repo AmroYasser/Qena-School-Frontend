@@ -12,6 +12,9 @@ export class TeachersService {
   getAllTeachers(): Observable<Iteacher[]> {
     return this._http.get<Iteacher[]>('http://127.0.0.1:8000/teacher/');
   }
+  getSpecificTeacher(_id: number): Observable<Iteacher> {
+    return this._http.get<Iteacher>(`http://127.0.0.1:8000/teacher/${_id}`);
+  }
   insertNewTeacher(teacher: Iteacher): Observable<Iteacher> {
     const httpOptions = {
       headers: new HttpHeaders({
