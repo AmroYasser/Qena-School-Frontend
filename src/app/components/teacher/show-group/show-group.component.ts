@@ -21,7 +21,7 @@ export class ShowGroupComponent implements OnInit {
 
   constructor(private _group: GroupService, private _router: Router, route: ActivatedRoute) {
     this.post = {
-      title: '', content: '', group: null
+      title: '', content: '', group_pk: 0
     }
     this.posts = []
     this.post_content = ''
@@ -38,7 +38,7 @@ export class ShowGroupComponent implements OnInit {
 
   addPost() {
     this.post = {
-      title: this.post_title, content: this.post_content, group: this.group_id
+      title: this.post_title, content: this.post_content, group_pk: this.group_id
     }
     this._group.addPost(this.post).subscribe((data) => {
       this._router.navigateByUrl(`/tgroup/${this.group_id}`);

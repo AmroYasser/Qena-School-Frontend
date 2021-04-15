@@ -3,5 +3,6 @@ export interface Ipost {
     title: string;
     content: string;
     created_at?: Date;
-    group: any;
+    group?: any;
+    group_pk?: number;
 }
