@@ -3,5 +3,5 @@ export interface Iteacher {
   name: string;
   description: string;
   phone: string;
-  image: string;
+  image?: File;
 }

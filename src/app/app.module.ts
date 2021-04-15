@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,8 +14,19 @@ import { StudentcourseComponent } from './components/student/studentcourse/stude
 import { ShowTeacherComponent } from './components/teacher/show-teacher/show-teacher.component';
 import { ShowGroupComponent } from './components/teacher/show-group/show-group.component';
 import { ManageTeachersComponent } from './components/admin/manage-teachers/manage-teachers.component';
+import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
+import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/modifyteacherinfo/modifyteacherinfo.component';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    CommonModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+     
+  ],
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -25,15 +37,11 @@ import { ManageTeachersComponent } from './components/admin/manage-teachers/mana
     StudentcourseComponent,
     ShowTeacherComponent,
     ShowGroupComponent,
+    ShowgrouppostsComponent,
     ManageTeachersComponent,
+    ModifyteacherinfoComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
