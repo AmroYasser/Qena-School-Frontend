@@ -13,6 +13,7 @@ import { StudentcourseComponent } from './components/student/studentcourse/stude
 import { ShowTeacherComponent } from './components/teacher/show-teacher/show-teacher.component';
 import { ShowGroupComponent } from './components/teacher/show-group/show-group.component';
 import { ManageTeachersComponent } from './components/admin/manage-teachers/manage-teachers.component';
+import { ManageGroupsDataComponent } from './components/admin/manage-groups-data/manage-groups-data.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ManageTeachersComponent } from './components/admin/manage-teachers/mana
     ShowTeacherComponent,
     ShowGroupComponent,
     ManageTeachersComponent,
+    ManageGroupsDataComponent,
   ],
   imports: [
     BrowserModule,
