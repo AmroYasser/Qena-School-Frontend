@@ -12,6 +12,7 @@ import { ReservationComponent } from './components/student/reservation/reservati
 import { StudentcourseComponent } from './components/student/studentcourse/studentcourse.component';
 import { ShowTeacherComponent } from './components/teacher/show-teacher/show-teacher.component';
 import { ShowGroupComponent } from './components/teacher/show-group/show-group.component';
+import { ManageTeachersComponent } from './components/admin/manage-teachers/manage-teachers.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ShowGroupComponent } from './components/teacher/show-group/show-group.c
     StudentcourseComponent,
     ShowTeacherComponent,
     ShowGroupComponent,
+    ManageTeachersComponent,
   ],
   imports: [
     BrowserModule,
