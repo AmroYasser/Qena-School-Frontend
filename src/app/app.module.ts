@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,8 +15,20 @@ import { ShowTeacherComponent } from './components/teacher/show-teacher/show-tea
 import { ShowGroupComponent } from './components/teacher/show-group/show-group.component';
 import { ManageTeachersComponent } from './components/admin/manage-teachers/manage-teachers.component';
 import { ManageGroupsDataComponent } from './components/admin/manage-groups-data/manage-groups-data.component';
+import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
+import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/modifyteacherinfo/modifyteacherinfo.component';
+
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    CommonModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+     
+  ],
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -26,16 +39,12 @@ import { ManageGroupsDataComponent } from './components/admin/manage-groups-data
     StudentcourseComponent,
     ShowTeacherComponent,
     ShowGroupComponent,
+    ShowgrouppostsComponent,
     ManageTeachersComponent,
     ManageGroupsDataComponent,
+    ModifyteacherinfoComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

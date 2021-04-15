@@ -10,11 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShowTeacherComponent implements OnInit {
   teacher: Iteacher | undefined;
-  constructor(private _apiTeacherService: TeachersService, private activedRoute: ActivatedRoute) { }
+  id:number
+  constructor(private _apiTeacherService: TeachersService, private activedRoute: ActivatedRoute) {
+    this.id=NaN
+   }
 
   ngOnInit(): void {
-    let id = this.activedRoute.snapshot.params["id"];
-    this._apiTeacherService.getSpecificTeacher(id).subscribe((res) => {
+    this.id= this.activedRoute.snapshot.params["id"];
+    this._apiTeacherService.getSpecificTeacher(this.id).subscribe((res) => {
       this.teacher = res;
     }, (err) => {
       console.log(err);

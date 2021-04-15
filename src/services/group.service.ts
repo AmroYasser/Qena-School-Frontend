@@ -15,6 +15,10 @@ export class GroupService {
     return this._http.get<ICourse>(`http://127.0.0.1:8000/course-group/${group_id}`);
   }
 
+  get_posts_for_group(group_id:number):Observable<Ipost[]>{
+    return this._http.get<Ipost[]>(`http://127.0.0.1:8000/group-post/${group_id}/`)
+  }
+
 
   addPost(post: Ipost): Observable<Ipost> {
     const httpOptions = {
