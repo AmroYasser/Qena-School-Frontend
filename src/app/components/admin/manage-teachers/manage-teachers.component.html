@@ -15,10 +15,10 @@
       <td>{{t.description}}</td>
       <td>{{t.phone}}</td>
       <td><a [routerLink]="['/show-teacher',t.id]" class="btn btn-secondary">عرض</a></td>
-      <td><a href="#" class="btn btn-info">تعديل</a></td>
-      <td><a href="#" class="btn btn-danger">حذف</a></td>
+      <td><a [routerLink]="['/update-teacher', t.id]" class="btn btn-info">تعديل</a></td>
+      <td><a href="#"  class="btn btn-danger">حذف</a></td>
     </tr>
   </tbody>
 </table>
 
-<a class="btn btn-success">اضف مدرس جديد</a>
+<a href="#" class="btn btn-success">اضف مدرس جديد</a>

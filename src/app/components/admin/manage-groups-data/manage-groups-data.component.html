@@ -1,0 +1,29 @@
+<table class="table table-bordered table-hover text-center mt-5">
+  <thead>
+    <tr>
+      <th>الاسم</th>
+      <th>المستوي</th>
+      <th>عدد الحصص</th>
+      <th>تاريخ البدء</th>
+      <th>مواعيد الحصص</th>
+      <th>اسم المدرس</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let g of groups">
+      <td>{{g.name}}</td>
+      <td>{{g.level}}</td>
+      <td>{{g.session_num}}</td>
+      <td>{{g.start_date}}</td>
+      <td>{{g.schedule}}</td>
+      <td>{{g.teacher.name}}</td>
+      <td><a href="#" class="btn btn-secondary">عرض</a></td>
+      <td><a href="#" class="btn btn-info">تعديل</a></td>
+      <td><a href="#" class="btn btn-danger">حذف</a></td>
+    </tr>
+  </tbody>
+</table>
+<a [routerLink]="['/create-group']" class="btn btn-success">اضف مجموعة جديدة</a>
