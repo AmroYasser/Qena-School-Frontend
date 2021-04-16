@@ -13,7 +13,7 @@ import { GroupService } from 'src/services/group.service';
 })
 export class ShowGroupComponent implements OnInit {
   post: Ipost
-  posts: Ipost[]
+  posts: any
   post_title: string
   post_content: string
   group_id: number
@@ -23,7 +23,6 @@ export class ShowGroupComponent implements OnInit {
     this.post = {
       title: '', content: '', group_pk: 0
     }
-    this.posts = []
     this.post_content = ''
     this.post_title = ''
     this.group_id = route.snapshot.params.id
@@ -34,7 +33,12 @@ export class ShowGroupComponent implements OnInit {
       this.group = data
     },
       (err) => console.log(err))
+
+    this._group.get_posts_for_group(this.group_id).subscribe((data) => {
+      this.posts = data
+    }, (err) => console.log(err))
   }
+
 
   addPost() {
     this.post = {
