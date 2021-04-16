@@ -14,11 +14,12 @@ import { StudentcourseComponent } from './components/student/studentcourse/stude
 import { ShowTeacherComponent } from './components/teacher/show-teacher/show-teacher.component';
 import { ShowGroupComponent } from './components/teacher/show-group/show-group.component';
 import { ManageTeachersComponent } from './components/admin/manage-teachers/manage-teachers.component';
+import { ManageGroupComponent } from './components/admin/groups/manage-group/manage-group.component';
+
 import { ManageGroupsDataComponent } from './components/admin/manage-groups-data/manage-groups-data.component';
 import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
 import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/modifyteacherinfo/modifyteacherinfo.component';
 import { AddteacherComponent } from './components/admin/admin-teacher/addteacher/addteacher.component';
-
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { AddteacherComponent } from './components/admin/admin-teacher/addteacher
     ShowGroupComponent,
     ShowgrouppostsComponent,
     ManageTeachersComponent,
+    ManageGroupComponent,
     ManageGroupsDataComponent,
     ModifyteacherinfoComponent,
     AddteacherComponent,
