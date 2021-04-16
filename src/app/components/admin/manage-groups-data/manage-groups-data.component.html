@@ -1,3 +1,5 @@
+<h2>ادارة المجموعات</h2>
+
 <table class="table table-bordered table-hover text-center mt-5">
   <thead>
     <tr>
@@ -20,7 +22,7 @@
       <td>{{g.start_date}}</td>
       <td>{{g.schedule}}</td>
       <td>{{g.teacher.name}}</td>
-      <td><a href="#" class="btn btn-secondary">عرض</a></td>
+      <td><a [routerLink]="['/post-group/', g.id]" class="btn btn-secondary">عرض</a></td>
       <td><a href="#" class="btn btn-info">تعديل</a></td>
       <td><a href="#" class="btn btn-danger">حذف</a></td>
     </tr>
