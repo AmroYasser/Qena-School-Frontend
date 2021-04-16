@@ -1,0 +1,49 @@
+<div class="container">
+    <h2 class="my-5">تعديل مجموعة</h2>
+
+    <div class="w-100">
+        <form class="col-lg-6 mx-auto" [formGroup]="myForm" (ngSubmit)="updateGroup()">
+            <div class="form-group">
+                <label for="name">اسم المجموعة :</label>
+                <input disabled type="text" name="name" id="name" class="form-control" value={{group.name}}>
+            </div>
+            <div class="form-group">
+                <label for="level">المستوي :</label>
+                <input disabled type="text" name="lvl" id="lvl" class="form-control" value={{group.level}}>
+
+            </div>
+            <div class="form-group">
+                <label for="session_num">عدد الحصص :</label>
+                <input formControlName="formSessionNum" type="number" name="session_num" id="session_num" min="1"
+                    max="8" class="form-control">
+                <div class="alert alert-danger" role="alert"
+                    *ngIf="myForm.controls['formSessionNum'].invalid && myForm.controls['formSessionNum'].touched">
+                    <p *ngIf="myForm.controls['formSessionNum'].errors?.required">هذا الحقل مطلوب</p>
+                    <p *ngIf="myForm.controls['formSessionNum'].errors?.min">لايمكن أن يكون أقل من 1</p>
+                    <p *ngIf="myForm.controls['formSessionNum'].errors?.max">لايمكن أن يكون أكثر من 8</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="start_date">تاريخ البدء :</label>
+                <input disabled type="date" value={{group.start_date}} name="start_date" id="start_date"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="schedule">مواعيد الحصص :</label>
+                <input formControlName="formSchedule" type="text" name="schedule" id="schedule" class="form-control">
+                <div class="alert alert-danger" role="alert"
+                    *ngIf="myForm.controls['formSchedule'].invalid && myForm.controls['formSchedule'].touched">
+                    <p *ngIf="myForm.controls['formSchedule'].errors?.required">هذا الحقل مطلوب</p>
+                    <p *ngIf="myForm.controls['formSchedule'].errors?.maxlength">ادخل نص لا يتجاوز 50 حرف</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="level">المدرس :</label>
+                <input disabled type="text" name="teacher" id="teacher" class="form-control"
+                    value={{group.teacher.name}}>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">تعديل</button>
+        </form>
+    </div>
+
+</div>

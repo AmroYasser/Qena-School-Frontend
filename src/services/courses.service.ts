@@ -22,4 +22,16 @@ export class CoursesService {
     };
     return this._http.post<ICourse>('http://127.0.0.1:8000/course-group/', course, httpOptions);
   }
+
+  updateCourse(group_id: number, course: ICourse): Observable<ICourse> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': '*/*'
+      })
+    };
+    return this._http.put<ICourse>(`http://127.0.0.1:8000/course-group/${group_id}/`, course, httpOptions);
+  }
 }
+
+
