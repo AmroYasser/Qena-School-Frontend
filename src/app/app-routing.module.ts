@@ -10,6 +10,7 @@ import { ManageTeachersComponent } from './components/admin/manage-teachers/mana
 import { ManageGroupsDataComponent } from './components/admin/manage-groups-data/manage-groups-data.component';
 import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
 import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/modifyteacherinfo/modifyteacherinfo.component';
+import { AddteacherComponent } from './components/admin/admin-teacher/addteacher/addteacher.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'manage-groups-data', component: ManageGroupsDataComponent },
   { path: 'post-group/:id', component: ShowgrouppostsComponent },
   { path: 'update-teacher/:id', component: ModifyteacherinfoComponent },
+  { path: 'add-teacher', component: AddteacherComponent },
 ];
 
 @NgModule({

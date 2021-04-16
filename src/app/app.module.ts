@@ -17,6 +17,7 @@ import { ManageTeachersComponent } from './components/admin/manage-teachers/mana
 import { ManageGroupsDataComponent } from './components/admin/manage-groups-data/manage-groups-data.component';
 import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
 import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/modifyteacherinfo/modifyteacherinfo.component';
+import { AddteacherComponent } from './components/admin/admin-teacher/addteacher/addteacher.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/mod
     ManageTeachersComponent,
     ManageGroupsDataComponent,
     ModifyteacherinfoComponent,
+    AddteacherComponent,
   ],
   
   providers: [],

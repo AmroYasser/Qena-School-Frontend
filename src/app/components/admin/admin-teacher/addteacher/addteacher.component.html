@@ -1,0 +1,23 @@
+<form>
+<div class="form-group">
+  <label for="">الاسم</label>
+  <input type="text" name="name" id="" class="form-control" [(ngModel)]="name" placeholder="" aria-describedby="helpId">
+</div>
+
+<div class="form-group">
+  <label for="">اضافة وصف</label>
+  <textarea class="form-control" name="description" [(ngModel)]="description" id="" rows="3"></textarea>
+</div>
+
+<div class="form-group">
+  <label for="">اضافة رقم هاتف</label>
+  <input type="text" name="phone" id="" class="form-control" [(ngModel)]="phone" placeholder="" aria-describedby="helpId">
+</div>
+
+<div class="form-group">
+  <label for="file">اضافة صورة</label>
+  <input type="file" class="form-control-file btn btn-info" (change)="onFileselected($event)" name="file" id="file" placeholder="" aria-describedby="fileHelpId">
+</div>
+<input name="" id="" class="btn btn-info" (click)="add_teacher()" type="submit" value="حفظ">
+
+</form>
