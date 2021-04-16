@@ -1,10 +1,3 @@
-<h1></h1>
-<h3></h3>
-<h3></h3>
-<h3></h3>
-
-
-
 <div class="container">
     <div class="card bg-light mb-3" style="max-width: 20rem;">
         <div class="card-header">المجموعة: {{group.name}} </div>
@@ -13,6 +6,23 @@
             <h5 class="card-title">أ\{{group.teacher.name}}</h5>
             <p class="card-text">المواعيد: {{group.schedule}}</p>
             <p class="card-text"> موعد البدء: {{group.start_date}}</p>
+        </div>
+
+
+    </div>
+    <h2>المنشورات</h2>
+    <div class="well mb-3">
+        <div class="media" *ngFor="let post of posts">
+            <div class="media-body">
+                <h4 class="media-heading bg-light">{{post.title}}</h4>
+                <p class="text-left">
+                    {{post.content}}
+                </p>
+                <ul class="list-inline list-unstyled">
+                    <li><span><i class="glyphicon glyphicon-calendar"></i>التاريخ: {{post.created_at|date:'d-m-y'}}
+                        </span></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="row" id="row_style">

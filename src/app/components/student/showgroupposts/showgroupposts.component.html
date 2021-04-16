@@ -12,6 +12,22 @@
         </div>
       </div>
 
+
+       <div class="col-sm-8">
+
+       <div class="container-fluid">
+  <div class="well mb-3">
+      <div class="media" *ngFor="let post of posts">
+  		<div class="media-body">
+    		<h4 class="media-heading bg-light">{{post.title}}</h4>
+          <p class="text-left">
+          {{post.content}}
+          </p>
+          <ul class="list-inline list-unstyled">
+  			<li><span><i class="glyphicon glyphicon-calendar"></i>التاريخ: {{post.created_at|date:'d-m-y'}} </span></li>
+			</ul>
+       </div>
+
     </div>
 
   </div>
