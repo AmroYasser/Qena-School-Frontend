@@ -23,6 +23,8 @@ import { AddteacherComponent } from './components/admin/admin-teacher/addteacher
 import { CreateStudentComponent } from './components/student/create-student/create-student.component';
 import { StudentProfileComponent } from './components/student/student-profile/student-profile.component';
 import { ManageStudentsComponent } from './components/admin/manage-students/manage-students.component';
+import { ManageStudentsComponent } from './components/admin/manage-students-data/manage-students.component';
+import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.component';
 
 @NgModule({
   imports: [
@@ -53,6 +55,7 @@ import { ManageStudentsComponent } from './components/admin/manage-students/mana
     CreateStudentComponent,
     StudentProfileComponent,
     ManageStudentsComponent,
+    ModifyinfoComponent,
   ],
   
   providers: [],
