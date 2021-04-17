@@ -2,6 +2,7 @@ import { IStudent } from './../models/interfaces/istudent';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Imembership } from 'src/models/interfaces/imembership';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class StudentsService {
 
   getSpecificStudent(_id: number): Observable<IStudent> {
     return this._http.get<IStudent>(`http://127.0.0.1:8000/student/${_id}`);
+  }
+
+  getStudentMembership(_id: number): Observable<Imembership> {
+    return this._http.get<Imembership>(`http://127.0.0.1:8000/student-membership/${_id}`);
   }
 
   insertNewStudent(student: FormData): Observable<FormData> {

@@ -21,6 +21,7 @@ import { ShowgrouppostsComponent } from './components/student/showgroupposts/sho
 import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/modifyteacherinfo/modifyteacherinfo.component';
 import { AddteacherComponent } from './components/admin/admin-teacher/addteacher/addteacher.component';
 import { CreateStudentComponent } from './components/student/create-student/create-student.component';
+import { StudentProfileComponent } from './components/student/student-profile/student-profile.component';
 
 @NgModule({
   imports: [
@@ -49,6 +50,7 @@ import { CreateStudentComponent } from './components/student/create-student/crea
     ModifyteacherinfoComponent,
     AddteacherComponent,
     CreateStudentComponent,
+    StudentProfileComponent,
   ],
   
   providers: [],

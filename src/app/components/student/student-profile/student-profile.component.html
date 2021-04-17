@@ -1,0 +1,37 @@
+<div class="row my-3">
+    <div class="col-md-4">
+        <div class="card" dir="rtl">
+            <img class="card-img-top" src="assets/img_avatar1.png" alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title">اسم الطالب / {{memberships[0].student.name}}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="jumbotron" style="overflow:auto;">
+            <h3>حالة العضوية</h3>
+            <hr class="w-50 float-left">
+            <p class="w-100 float-left">{{memberships[0].status}}</p>
+        </div>
+        <div class="jumbotron" style="overflow:auto;">
+            <h3>معلومات التواصل</h3>
+            <hr class="w-50 float-left">
+            <ul class="float-left w-100 list-unstyled">
+                <li class="ml-3">رقم تليفون : {{memberships[0].student.phone}}<span></span></li>
+            </ul>
+        </div>
+        <div class="jumbotron" style="overflow:auto;">
+            <h3>المجموعات</h3>
+            <hr class="w-50 float-left">
+            <div class="float-left w-100">
+                <a class="btn btn-primary m-1" *ngFor="let mem of memberships"
+                    [routerLink]="['/post-group/', mem.group.id]">{{mem.group.name}}
+                    - {{mem.group.id}}</a>
+            </div>
+        </div>
+        <a class=" btn btn-primary m-1 float-right" [routerLink]="['/update-student/', memberships[0].student.id]">تعديل
+            الملف
+            الشخصي</a>
+    </div>
+</div>
