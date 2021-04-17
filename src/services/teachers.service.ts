@@ -29,11 +29,8 @@ export class TeachersService {
   updateTeacher(teacher: Iteacher, id: number): Observable<Iteacher> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
-        'Accept': '*/*',
-        'DataServiceVersion': '2.0',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'responseType': 'text'
+        'Content-Type': 'application/json',
+        'Accept': '*/*'
       })
     };
     return this._http.put<Iteacher>(`http://127.0.0.1:8000/teacher/${id}/`, teacher, httpOptions);

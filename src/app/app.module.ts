@@ -20,6 +20,7 @@ import { ManageGroupsDataComponent } from './components/admin/manage-groups-data
 import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
 import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/modifyteacherinfo/modifyteacherinfo.component';
 import { AddteacherComponent } from './components/admin/admin-teacher/addteacher/addteacher.component';
+import { CreateStudentComponent } from './components/student/create-student/create-student.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { AddteacherComponent } from './components/admin/admin-teacher/addteacher
     ManageGroupsDataComponent,
     ModifyteacherinfoComponent,
     AddteacherComponent,
+    CreateStudentComponent,
   ],
   
   providers: [],

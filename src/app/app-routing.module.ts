@@ -13,6 +13,7 @@ import { ManageGroupsDataComponent } from './components/admin/manage-groups-data
 import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
 import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/modifyteacherinfo/modifyteacherinfo.component';
 import { AddteacherComponent } from './components/admin/admin-teacher/addteacher/addteacher.component';
+import { CreateStudentComponent } from './components/student/create-student/create-student.component';
 
 const routes: Routes = [
   { path: 'home', component: CoursesComponent },
@@ -23,12 +24,12 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'tgroup/:id', component: ShowGroupComponent },
   { path: 'manage-teachers', component: ManageTeachersComponent },
-
   { path: 'manage-group/:id', component: ManageGroupComponent },
   { path: 'manage-groups-data', component: ManageGroupsDataComponent },
   { path: 'post-group/:id', component: ShowgrouppostsComponent },
   { path: 'update-teacher/:id', component: ModifyteacherinfoComponent },
   { path: 'add-teacher', component: AddteacherComponent },
+  { path: 'add-student', component: CreateStudentComponent },
 ];
 
 @NgModule({
