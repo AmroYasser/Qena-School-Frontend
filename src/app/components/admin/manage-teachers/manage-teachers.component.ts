@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Iteacher } from 'src/models/interfaces/iteacher';
 import { TeachersService } from 'src/services/teachers.service';
 
@@ -10,17 +12,29 @@ import { TeachersService } from 'src/services/teachers.service';
 export class ManageTeachersComponent implements OnInit {
   teachers: Iteacher[] = [];
 
-  constructor(private _apiTeacherService: TeachersService) { }
+  constructor(private _apiTeacherService: TeachersService, private _http: HttpClient, private _router: Router, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this._apiTeacherService.getAllTeachers().subscribe((res) => {
       this.teachers = res
-      console.log(this.teachers)
     },
       (err) => {
         console.log(err)
       }
     )
+  }
+
+  reload() {
+    this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this._router.onSameUrlNavigation = 'reload';
+    this._router.navigate(['./'], { relativeTo: this.route });
+  }
+
+  deleteTeacher(_id: any) {
+    this._http.delete(`http://127.0.0.1:8000/teacher/${_id}/`).subscribe(res => this.reload(),
+      err => console.log(err))
+
   }
 
 }
