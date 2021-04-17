@@ -2,11 +2,13 @@
     <div class="col-md-4">
         <div class="card" dir="rtl">
             <img class="card-img-top img-fluid rounded" [src]="student.image" alt="Card image" >
+           <form enctype="multipart/form-data">
             <div class="form-group">
               <label for=""></label>
               <input type="file" class="form-control-file" (change)="onFileselected($event)" name="image" id="" placeholder="" aria-describedby="fileHelpId">
               <small id="fileHelpId" class="form-text text-muted">تعديل الصورة</small>
             </div>
+            </form>
             <div class="card-body">
                 <h4 class="card-title">اسم الطالب / {{student.name}}</h4>
             </div>
