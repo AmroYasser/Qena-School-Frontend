@@ -18,6 +18,7 @@ export class CreateStudentComponent implements OnInit {
 
   constructor(private _apiStudentService: StudentsService, private _router: Router, private fb: FormBuilder) {
     this.levels = ['اول ابتدائي', 'ثاني ابتدائي', 'ثالث ابتدائي', 'رابع ابتدائي', 'خامس ابتدائي', 'سادس ابتدائي', 'اول اعدادي', 'ثاني اعدادي', 'ثالث اعدادي', 'اول ثانوي', 'ثاني ثانوي', 'ثالث ثانوي', 'اخري']
+   
     this.student = {
       name: "", level: "", phone: "", image: undefined
     };
