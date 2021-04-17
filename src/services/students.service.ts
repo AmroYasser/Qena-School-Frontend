@@ -18,9 +18,16 @@ export class StudentsService {
     return this._http.get<IStudent>(`http://127.0.0.1:8000/student/${_id}`);
   }
 
+
+  getAllMemberships(): Observable<Imembership[]> {
+    return this._http.get<Imembership[]>(`http://127.0.0.1:8000/membership/`);
+  }
+
   getStudentMembership(_id: number): Observable<Imembership> {
     return this._http.get<Imembership>(`http://127.0.0.1:8000/student-membership/${_id}`);
   }
+
+
 
   insertNewStudent(student: FormData): Observable<FormData> {
     // const httpOptions = {
