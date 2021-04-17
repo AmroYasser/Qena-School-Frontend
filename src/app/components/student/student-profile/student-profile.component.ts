@@ -9,9 +9,10 @@ import { StudentsService } from 'src/services/students.service';
 })
 export class StudentProfileComponent implements OnInit {
   memberships: any
+  student: any
   student_id: number
 
-  constructor(private _apiStudentService: StudentsService, private _router: Router, route: ActivatedRoute) {
+  constructor(private _apiStudentService: StudentsService, route: ActivatedRoute) {
     this.student_id = route.snapshot.params.id
   }
 
@@ -19,6 +20,9 @@ export class StudentProfileComponent implements OnInit {
     this._apiStudentService.getStudentMembership(this.student_id).subscribe((data) => {
       this.memberships = data
     }, (err) => console.log(err))
+    this._apiStudentService.getSpecificStudent(this.student_id).subscribe((data) => {
+      this.student = data
+    }, err => console.log(err))
   }
 
 }

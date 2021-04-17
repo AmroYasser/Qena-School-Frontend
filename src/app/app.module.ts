@@ -22,6 +22,7 @@ import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/mod
 import { AddteacherComponent } from './components/admin/admin-teacher/addteacher/addteacher.component';
 import { CreateStudentComponent } from './components/student/create-student/create-student.component';
 import { StudentProfileComponent } from './components/student/student-profile/student-profile.component';
+import { ManageStudentsComponent } from './components/admin/manage-students/manage-students.component';
 import { ManageStudentsComponent } from './components/admin/manage-students-data/manage-students.component';
 import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.component';
 

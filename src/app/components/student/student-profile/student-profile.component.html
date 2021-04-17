@@ -3,7 +3,7 @@
         <div class="card" dir="rtl">
             <img class="card-img-top" src="assets/img_avatar1.png" alt="Card image">
             <div class="card-body">
-                <h4 class="card-title">اسم الطالب / {{memberships[0].student.name}}</h4>
+                <h4 class="card-title">اسم الطالب / {{student.name}}</h4>
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
             <h3>معلومات التواصل</h3>
             <hr class="w-50 float-left">
             <ul class="float-left w-100 list-unstyled">
-                <li class="ml-3">رقم تليفون : {{memberships[0].student.phone}}<span></span></li>
+                <li class="ml-3">رقم تليفون : {{student.phone}}<span></span></li>
             </ul>
         </div>
         <div class="jumbotron" style="overflow:auto;">
@@ -30,7 +30,7 @@
                     - {{mem.group.id}}</a>
             </div>
         </div>
-        <a class=" btn btn-primary m-1 float-right" [routerLink]="['/update-student/', memberships[0].student.id]">تعديل
+        <a class=" btn btn-primary m-1 float-right" [routerLink]="['/update-student/', student.id]">تعديل
             الملف
             الشخصي</a>
     </div>
