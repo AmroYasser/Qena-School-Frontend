@@ -40,9 +40,6 @@ formData.append("name", this.teacher.name);
 formData.append("description", this.teacher.description);
 formData.append("phone", this.teacher.phone);
 formData.append("image", this.image);
-console.log("hellllllllo")
-console.log(this.teacher,"mmmmmmmmmm")
-console.log(this.teacher)
    this._http.put(`http://127.0.0.1:8000/teacher/${this.id}/`,formData).subscribe(res=>console.log(res),err=>console.log(err))
  } 
 
