@@ -38,15 +38,16 @@ export class ManageGroupComponent implements OnInit {
   }
 
   updateGroup() {
-    console.log(this.group)
-
     this.group.session_num = this.myForm.value.formSessionNum;
     this.group.schedule = this.myForm.value.formSchedule;
+    this.group.teacher_pk = this.group.teacher.id
 
     this._apiCoursesService.updateCourse(this.group_id, this.group).subscribe((res) => {
       this._router.navigateByUrl(`/tgroup/${this.group_id}`);
     },
       (err) => console.log(err))
   }
+
+
 
 }

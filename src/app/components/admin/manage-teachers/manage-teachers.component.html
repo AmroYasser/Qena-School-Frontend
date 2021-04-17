@@ -1,3 +1,5 @@
+<h2>ادارة المدرسين</h2>
+
 <table class="table table-bordered table-hover text-center mt-5">
   <thead>
     <tr>
@@ -16,9 +18,8 @@
       <td>{{t.phone}}</td>
       <td><a [routerLink]="['/show-teacher',t.id]" class="btn btn-secondary">عرض</a></td>
       <td><a [routerLink]="['/update-teacher', t.id]" class="btn btn-info">تعديل</a></td>
-      <td><a href="#"  class="btn btn-danger">حذف</a></td>
+      <td><a href="#" class="btn btn-danger">حذف</a></td>
     </tr>
   </tbody>
 </table>
-
 <a href="#" class="btn btn-success">اضف مدرس جديد</a>

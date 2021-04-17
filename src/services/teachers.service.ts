@@ -1,3 +1,4 @@
+import { ICourse } from './../models/interfaces/icourse';
 import { Iteacher } from './../models/interfaces/iteacher';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -25,17 +26,20 @@ export class TeachersService {
     return this._http.post<Iteacher>('http://127.0.0.1:8000/teacher/', teacher, httpOptions);
   }
 
-  updateTeacher(teacher:Iteacher,id:number):Observable<Iteacher>{
+  updateTeacher(teacher: Iteacher, id: number): Observable<Iteacher> {
     const httpOptions = {
       headers: new HttpHeaders({
-         'Content-Type':'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
+        'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
         'Accept': '*/*',
-        'DataServiceVersion':'2.0',
+        'DataServiceVersion': '2.0',
         'Access-Control-Allow-Headers': 'Content-Type',
-        'responseType':'text'
+        'responseType': 'text'
       })
     };
     return this._http.put<Iteacher>(`http://127.0.0.1:8000/teacher/${id}/`, teacher, httpOptions);
   }
 
+  get_groups_for_teacher(teacher_id: number): Observable<ICourse[]> {
+    return this._http.get<ICourse[]>(`http://127.0.0.1:8000/teacher-groups/${teacher_id}/`)
+  }
 }
