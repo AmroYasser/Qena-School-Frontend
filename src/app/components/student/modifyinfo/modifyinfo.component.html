@@ -1,6 +1,11 @@
 <div class="row my-3">
     <div class="col-md-4">
         <div class="card" dir="rtl">
+
+            <div class="card-body">
+                <h4 class="card-title"> الطالب / {{student.name}}</h4>
+            </div>
+
             <img class="card-img-top img-fluid rounded" [src]="student.image" alt="Card image" >
            <form enctype="multipart/form-data">
             <div class="form-group">
@@ -9,9 +14,7 @@
               <small id="fileHelpId" class="form-text text-muted">تعديل الصورة</small>
             </div>
             </form>
-            <div class="card-body">
-                <h4 class="card-title">اسم الطالب / {{student.name}}</h4>
-            </div>
+            
         </div>
         </div>
 <div class="col-md-4">
