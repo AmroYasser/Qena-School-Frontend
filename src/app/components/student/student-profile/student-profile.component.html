@@ -9,11 +9,7 @@
     </div>
 
     <div class="col-md-8">
-        <div class="jumbotron" style="overflow:auto;">
-            <h3>حالة العضوية</h3>
-            <hr class="w-50 float-left">
-            <p class="w-100 float-left">{{memberships[0].status}}</p>
-        </div>
+      
         <div class="jumbotron" style="overflow:auto;">
             <h3>معلومات التواصل</h3>
             <hr class="w-50 float-left">
@@ -30,7 +26,7 @@
                     - {{mem.group.id}}</a>
             </div>
         </div>
-        <a class=" btn btn-primary m-1 float-right" [routerLink]="['/update-student/', student.id]">تعديل
+        <a class=" btn btn-primary m-1 float-right" [routerLink]="['/update-student', student.id]">تعديل
             الملف
             الشخصي</a>
     </div>
