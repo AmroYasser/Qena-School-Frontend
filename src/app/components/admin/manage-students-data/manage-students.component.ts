@@ -9,18 +9,13 @@ import { StudentsService } from 'src/services/students.service';
   styleUrls: ['./manage-students.component.css']
 })
 export class ManageStudentsDataComponent implements OnInit {
-<<<<<<< HEAD
-  students:IStudent[]
-  constructor(private _studentserv:StudentsService) { 
-    this.students=[
-      {name:"",level:"",phone:""},
-=======
-  students: IStudent[]
 
+  students:IStudent[]
+  
   constructor(private _studentserv: StudentsService, private _router: Router, private _activatedRoute: ActivatedRoute) {
     this.students = [
       { name: "", level: "", phone: "" },
->>>>>>> 12d79a4d018c322f3036cfbec03e6a3ecda78114
+ 
     ]
   }
 
