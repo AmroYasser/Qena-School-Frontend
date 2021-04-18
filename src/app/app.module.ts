@@ -55,6 +55,7 @@ import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.
     CreateStudentComponent,
     StudentProfileComponent,
     ManageStudentsComponent,
+    ManageStudentsDataComponent,
     ModifyinfoComponent,
     ManageStudentsDataComponent,
   ],

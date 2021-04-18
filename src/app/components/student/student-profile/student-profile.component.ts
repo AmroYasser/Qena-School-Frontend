@@ -11,7 +11,7 @@ import { StudentsService } from 'src/services/students.service';
 })
 export class StudentProfileComponent implements OnInit {
   memberships: any
-  student: any
+  student: any = {}
   student_id: number
 
   constructor(private _apiStudentService: StudentsService, private _apiMembershipService: MembershipService, route: ActivatedRoute) {
@@ -19,7 +19,7 @@ export class StudentProfileComponent implements OnInit {
     this.student = {}
   }
 
-  ngOnInit(): void {
+ ngOnInit(): void {
     this._apiMembershipService.getStudentMembership(this.student_id).subscribe((data) => {
       this.memberships = data
     }, (err) => console.log(err))
