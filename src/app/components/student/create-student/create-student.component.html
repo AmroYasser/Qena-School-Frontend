@@ -34,10 +34,9 @@
       <div class="form-group">
         <label for="image">الصورة :</label>
         <input (change)="onFileselected($event)" formControlName="formImage" type="file" name="image" id="image"
-          class="form-control">
+          class="d-block">
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Add</button>
     </form>
   </div>
-
 </div>
