@@ -1,4 +1,4 @@
-<h2>ادارة الطلاب</h2>
+<h2>ادارة اشتراكات الطلاب</h2>
 
 <table class="table table-bordered table-hover text-center mt-5">
     <thead>
@@ -13,12 +13,12 @@
     <tbody>
         <tr *ngFor="let mem of memberships">
             <td>{{mem.student.name}}</td>
-            <td>{{mem.group.teacher}}</td>
+            <td>{{mem.group.teacher.name}}</td>
             <td>{{mem.group.name}}</td>
             <td>{{mem.group.level}}</td>
             <td>{{mem.student.phone}}</td>
-            <td><a [routerLink]="['/student-profile',mem.student.id]" class="btn btn-secondary">تأكيد</a></td>
-            <td><a (click)="deleteStudent()" class="btn btn-danger">حذف</a></td>
+            <td><a (click)="activate(mem.id)" class="btn btn-secondary">تأكيد</a></td>
+            <td><i (click)="deleteMembership(mem.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i></td>
         </tr>
     </tbody>
 </table>
