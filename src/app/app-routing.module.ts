@@ -30,7 +30,9 @@ const routes: Routes = [
   { path: 'manage-teachers', component: ManageTeachersComponent },
   { path: 'manage-group/:id', component: ManageGroupComponent },
   { path: 'manage-groups-data', component: ManageGroupsDataComponent },
+  { path: 'manage-student', component:ManageStudentsDataComponent },
   { path: 'manage-student', component: ManageStudentsComponent },
+ 
   { path: 'post-group/:id', component: ShowgrouppostsComponent },
   { path: 'update-teacher/:id', component: ModifyteacherinfoComponent },
   { path: 'add-teacher', component: AddteacherComponent },
