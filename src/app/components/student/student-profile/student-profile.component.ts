@@ -10,7 +10,7 @@ import { StudentsService } from 'src/services/students.service';
 })
 export class StudentProfileComponent implements OnInit {
   memberships: any
-  student: any
+  student: any = {}
   student_id: number
 
   constructor(private _apiStudentService: StudentsService, route: ActivatedRoute) {
@@ -18,15 +18,12 @@ export class StudentProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.student_id)
     this._apiStudentService.getStudentMembership(this.student_id).subscribe((data) => {
       this.memberships = data
     }, (err) => console.log(err))
     this._apiStudentService.getSpecificStudent(this.student_id).subscribe((data) => {
       this.student = data
     }, err => console.log(err))
-
-    console.log(this.student)
   }
 
 }

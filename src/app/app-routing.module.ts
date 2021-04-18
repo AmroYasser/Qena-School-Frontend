@@ -16,7 +16,7 @@ import { AddteacherComponent } from './components/admin/admin-teacher/addteacher
 import { CreateStudentComponent } from './components/student/create-student/create-student.component';
 import { StudentProfileComponent } from './components/student/student-profile/student-profile.component';
 import { ManageStudentsComponent } from './components/admin/manage-students/manage-students.component';
-import { ManageStudentsComponent } from './components/admin/manage-students-data/manage-students.component';
+import { ManageStudentsDataComponent } from './components/admin/manage-students-data/manage-students.component';
 import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.component';
 
 const routes: Routes = [
@@ -30,13 +30,13 @@ const routes: Routes = [
   { path: 'manage-teachers', component: ManageTeachersComponent },
   { path: 'manage-group/:id', component: ManageGroupComponent },
   { path: 'manage-groups-data', component: ManageGroupsDataComponent },
-  { path: 'manage-student', component:ManageStudentsComponent },
+  { path: 'manage-student', component: ManageStudentsComponent },
   { path: 'post-group/:id', component: ShowgrouppostsComponent },
   { path: 'update-teacher/:id', component: ModifyteacherinfoComponent },
   { path: 'add-teacher', component: AddteacherComponent },
   { path: 'add-student', component: CreateStudentComponent },
   { path: 'student-profile/:id', component: StudentProfileComponent },
-  { path: 'manage-students', component: ManageStudentsComponent },
+  { path: 'manage-students', component: ManageStudentsDataComponent },
   { path: 'update-student/:id', component: ModifyinfoComponent },
 ];
 
