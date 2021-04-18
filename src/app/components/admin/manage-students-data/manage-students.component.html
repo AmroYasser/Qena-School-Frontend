@@ -1,26 +1,25 @@
 <div class="container-fluid">
-<h1 class="text-center mt-2 bg-defult">  بيانات جميع الطلبة</h1>
-<table class="table table-hover table-dark mt-5">
-  <thead>
-    <tr>
-      <th scope="col">الترتيب</th>
-      <th scope="col">الاسم</th>
-      <th scope="col">المستوي</th>
-      <th scope="col">الهاتف</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let student of students;let i=index">
-      <th scope="row">{{i+1}}</th>
-      <td>{{student.name}}</td>
-      <td>{{student.level}}</td>
-      <td>{{student.phone}}</td>
-      <td><a [routerLink]="['/student-profile',student.id]" class="btn btn-info" >تفاصيل اكثر</a></td>
-      <td><i style="color:red;font-size:30px;" class="fas fa-trash"></i></td>
-    </tr>
+  <h1 class="text-center mt-2 bg-defult"> بيانات جميع الطلبة</h1>
+  <table class="table table-bordered table-hover text-center mt-5">
+    <thead>
+      <tr>
+        <th scope="col">الترتيب</th>
+        <th scope="col">الاسم</th>
+        <th scope="col">المستوي</th>
+        <th scope="col">الهاتف</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{student.name}}</td>
+        <td>{{student.level}}</td>
+        <td>{{student.phone}}</td>
+        <td><a [routerLink]="['/student-profile',student.id]" class="btn btn-info">تفاصيل اكثر</a></td>
+        <td><i (click)="deleteStudnet(student.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i></td>
+      </tr>
     </tbody>
-</table>
+  </table>
 </div>

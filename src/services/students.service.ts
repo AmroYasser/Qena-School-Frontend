@@ -48,4 +48,10 @@ export class StudentsService {
     };
     return this._http.put<IStudent>(`http://127.0.0.1:8000/student/${id}/`, student, httpOptions);
   }
+
+
+  deleteSpecificStudent(id: number) {
+    return this._http.delete(`http://127.0.0.1:8000/student/${id}/`)
+  }
+
 }
