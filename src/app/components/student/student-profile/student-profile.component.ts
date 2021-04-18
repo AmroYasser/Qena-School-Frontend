@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IStudent } from 'src/models/interfaces/istudent';
+import { MembershipService } from 'src/services/membership.service';
 import { StudentsService } from 'src/services/students.service';
 
 @Component({
@@ -10,23 +11,21 @@ import { StudentsService } from 'src/services/students.service';
 })
 export class StudentProfileComponent implements OnInit {
   memberships: any
-  student: any
+  student: any = {}
   student_id: number
 
-  constructor(private _apiStudentService: StudentsService, route: ActivatedRoute) {
+  constructor(private _apiStudentService: StudentsService, private _apiMembershipService: MembershipService, route: ActivatedRoute) {
     this.student_id = route.snapshot.params.id
+    this.student = {}
   }
 
-  ngOnInit(): void {
-    console.log(this.student_id)
-    this._apiStudentService.getStudentMembership(this.student_id).subscribe((data) => {
+ ngOnInit(): void {
+    this._apiMembershipService.getStudentMembership(this.student_id).subscribe((data) => {
       this.memberships = data
     }, (err) => console.log(err))
     this._apiStudentService.getSpecificStudent(this.student_id).subscribe((data) => {
       this.student = data
-    }, err => console.log(err))
-
-    console.log(this.student)
+    }, err => console.log("string"))
   }
 
 }

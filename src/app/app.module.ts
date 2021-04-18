@@ -34,7 +34,7 @@ import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-     
+
   ],
   declarations: [
     AppComponent,
@@ -56,9 +56,11 @@ import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.
     StudentProfileComponent,
     ManageStudentsDataComponent,
     ManageStudentsComponent,
+    ManageStudentsDataComponent,
     ModifyinfoComponent,
+    ManageStudentsDataComponent,
   ],
-  
+
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -19,16 +19,6 @@ export class StudentsService {
   }
 
 
-  getAllMemberships(): Observable<Imembership[]> {
-    return this._http.get<Imembership[]>(`http://127.0.0.1:8000/membership/`);
-  }
-
-  getStudentMembership(_id: number): Observable<Imembership> {
-    return this._http.get<Imembership>(`http://127.0.0.1:8000/student-membership/${_id}`);
-  }
-
-
-
   insertNewStudent(student: FormData): Observable<FormData> {
     // const httpOptions = {
     //   headers: new HttpHeaders({
@@ -48,4 +38,10 @@ export class StudentsService {
     };
     return this._http.put<IStudent>(`http://127.0.0.1:8000/student/${id}/`, student, httpOptions);
   }
+
+
+  deleteSpecificStudent(id: number) {
+    return this._http.delete(`http://127.0.0.1:8000/student/${id}/`)
+  }
+
 }
