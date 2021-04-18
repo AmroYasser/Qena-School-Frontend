@@ -1,53 +1,45 @@
 <div class="container">
-    <div class="card bg-light mb-3" style="max-width: 20rem;">
-        <div class="card-header">المجموعة: {{group.name}} </div>
-        <div class="card-body">
-            <h5 class="card-title">الصف: {{group.level}}</h5>
-            <h5 class="card-title">أ\{{group.teacher.name}}</h5>
-            <p class="card-text">المواعيد: {{group.schedule}}</p>
-            <p class="card-text"> موعد البدء: {{group.start_date}}</p>
-        </div>
-
-
+  <div class="row mt-3">
+    <div class="card bg-light mb-3 col-lg-3" style="max-width: 20rem;">
+      <div class="card-header">المجموعة: {{group.name}} </div>
+      <div class="card-body">
+        <h5 class="card-title">الصف: {{group.level}}</h5>
+        <h5 class="card-title">أ\{{group.teacher.name}}</h5>
+        <p class="card-text">المواعيد: {{group.schedule}}</p>
+        <p class="card-text"> موعد البدء: {{group.start_date}}</p>
+      </div>
     </div>
-    <h2>المنشورات</h2>
-    <div class="well mb-3">
-        <div class="media" *ngFor="let post of posts">
+    <div class="col-lg-9">
+      <div class="ml-3 mb-5">
+        <h4>أضف منشور جديد للطلاب</h4>
+        <div class="form-group">
+          <input #title type="text" [(ngModel)]="post_title" placeholder="العنوان" class="w-50 form-control">
+        </div>
+        <textarea #content [(ngModel)]="post_content" id="editor" class="form-control" cols="30" rows="5"
+          placeholder=" أكتب محتوى المنشور هنا..."></textarea>
+        <br>
+        <div class="form-group">
+          <button class="btn btn-primary" id="submit" (click)='addPost()'>نــشر</button>
+        </div>
+      </div>
+      <hr class="w-50 mx-auto" style="border-top: 1px solid gray;">
+      <div class="ml-3">
+        <h3>المنشورات</h3>
+        <div class="mb-3 ml-3">
+          <div class="media" *ngFor="let post of posts">
             <div class="media-body">
-                <h4 class="media-heading bg-light">{{post.title}}</h4>
-                <p class="text-left">
-                    {{post.content}}
-                </p>
-                <ul class="list-inline list-unstyled">
-                    <li><span><i class="glyphicon glyphicon-calendar"></i>التاريخ: {{post.created_at|date:'d-m-y'}}
-                        </span></li>
-                </ul>
+              <h4 class="media-heading bg-light">{{post.title}}</h4>
+              <p class="text-left">
+                {{post.content}}
+              </p>
+              <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>التاريخ: {{post.created_at|date:'d-m-y'}}
+                  </span></li>
+              </ul>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="row" id="row_style">
-        <div class="col-md-4 offset-md-4">
-            <h4 class="text-center">أضف منشور جديد للطلاب</h4>
-            <div class="form-group">
-                <input #title type="text" [(ngModel)]="post_title" placeholder="العنوان" class="form-control">
-            </div>
-            <textarea #content [(ngModel)]="post_content" id="editor" class="form-control" cols="30" rows="10"
-                placeholder=" أكتب محتوى المنشور هنا..."></textarea>
-            <br>
-            <div class="form-group">
-                <button class="btn btn-primary" id="submit" (click)='addPost()'>نــشر</button>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
-
-<style>
-    #row_style {
-        margin-top: 30px;
-    }
-
-    #submit {
-        display: block;
-        margin: auto;
-    }
-</style>

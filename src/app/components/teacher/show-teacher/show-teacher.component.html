@@ -25,7 +25,7 @@
       <h3>المجموعات</h3>
       <hr class="w-50 float-left">
       <div class="float-left w-100">
-        <a class="btn btn-primary m-1" *ngFor="let g of teacher_groups" [routerLink]="['/post-group/', g.id]">{{g.name}}
+        <a class="btn btn-primary m-1" *ngFor="let g of teacher_groups" [routerLink]="['/tgroup/', g.id]">{{g.name}}
           - {{g.level}}</a>
       </div>
     </div>
