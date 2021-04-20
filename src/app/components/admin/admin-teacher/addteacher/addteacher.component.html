@@ -1,20 +1,23 @@
 <div class="container">
   <h3 class="my-5">اضافة مدرس</h3>
-  <form class="col-lg-6 mx-auto">
+  <img width="90" height="90" #errimage src="{{image||'assets/img_avatar1.png'}}" />
+  <!-- <img src="assets/img_avatar1.png" hidden [(ngModel)]="image" alt=""> -->
+  <form [formGroup]="myForm" class="col-lg-6 mx-auto" (ngSubmit)="add_teacher()" enctype="multipart/form-data">
     <div class="form-group">
-      <label for="">الاسم</label>
-      <input type="text" name="name" id="" class="form-control" [(ngModel)]="name" placeholder=""
+      <label for="name">الاسم</label>
+      <input formControlName="formName" type="text" name="name" id="name" class="form-control" placeholder=""
         aria-describedby="helpId">
     </div>
 
     <div class="form-group">
-      <label for="">اضافة وصف</label>
-      <textarea class="form-control" name="description" [(ngModel)]="description" id="" rows="3"></textarea>
+      <label for="description">اضافة وصف</label>
+      <textarea formControlName="formDescription" class="form-control" name="description" id="description"
+        rows="3"></textarea>
     </div>
 
     <div class="form-group">
-      <label for="">اضافة رقم هاتف</label>
-      <input type="text" name="phone" id="" class="form-control" [(ngModel)]="phone" placeholder=""
+      <label for="phone">اضافة رقم هاتف</label>
+      <input formControlName="formPhone" type="text" name="phone" id="phone" class="form-control" placeholder=""
         aria-describedby="helpId">
     </div>
 
@@ -23,7 +26,7 @@
       <input type="file" class="d-block" (change)="onFileselected($event)" name="file" id="file" placeholder=""
         aria-describedby="fileHelpId">
     </div>
-    <input name="" id="" class="btn btn-info" (click)="add_teacher()" type="submit" value="حفظ">
+    <input class="btn btn-info" [disabled]="myForm.invalid" type="submit" value="حفظ">
 
   </form>
 </div>

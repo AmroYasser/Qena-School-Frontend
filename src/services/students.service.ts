@@ -36,7 +36,7 @@ export class StudentsService {
         'Accept': '*/*'
       })
     };
-    return this._http.put<IStudent>(`http://127.0.0.1:8000/student/${id}/`, student, httpOptions);
+    return this._http.patch<IStudent>(`http://127.0.0.1:8000/student/${id}/`, student, httpOptions);
   }
 
 
