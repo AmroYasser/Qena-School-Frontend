@@ -30,7 +30,7 @@ export class CoursesService {
         'Accept': '*/*'
       })
     };
-    return this._http.put<ICourse>(`http://127.0.0.1:8000/course-group/${group_id}/`, course, httpOptions);
+    return this._http.patch<ICourse>(`http://127.0.0.1:8000/course-group/${group_id}/`, course, httpOptions);
   }
 }
 

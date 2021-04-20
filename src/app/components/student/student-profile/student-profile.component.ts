@@ -16,10 +16,9 @@ export class StudentProfileComponent implements OnInit {
 
   constructor(private _apiStudentService: StudentsService, private _apiMembershipService: MembershipService, route: ActivatedRoute) {
     this.student_id = route.snapshot.params.id
-    this.student = {}
   }
 
- ngOnInit(): void {
+  ngOnInit(): void {
     this._apiMembershipService.getStudentMembership(this.student_id).subscribe((data) => {
       this.memberships = data
     }, (err) => console.log(err))
