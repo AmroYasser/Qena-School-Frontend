@@ -1,7 +1,5 @@
 <div class="container">
   <h3 class="my-5">اضافة مدرس</h3>
-  <img width="90" height="90" #errimage src="{{image||'assets/img_avatar1.png'}}" />
-  <!-- <img src="assets/img_avatar1.png" hidden [(ngModel)]="image" alt=""> -->
   <form [formGroup]="myForm" class="col-lg-6 mx-auto" (ngSubmit)="add_teacher()" enctype="multipart/form-data">
     <div class="form-group">
       <label for="name">الاسم</label>

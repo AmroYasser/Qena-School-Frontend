@@ -18,9 +18,11 @@ import { StudentProfileComponent } from './components/student/student-profile/st
 import { ManageStudentsComponent } from './components/admin/manage-students/manage-students.component';
 import { ManageStudentsDataComponent } from './components/admin/manage-students-data/manage-students.component';
 import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.component';
+import { HomePageComponent } from './components/main-layout/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: 'home', component: CoursesComponent },
+  { path: 'home', component: HomePageComponent },
+  { path: 'courses', component: CoursesComponent },
   { path: 'create-group', component: CreateGroupComponent },
   { path: 'reserve', component: ReservationComponent },
   { path: 'student-course', component: StudentcourseComponent },
@@ -30,9 +32,7 @@ const routes: Routes = [
   { path: 'manage-teachers', component: ManageTeachersComponent },
   { path: 'manage-group/:id', component: ManageGroupComponent },
   { path: 'manage-groups-data', component: ManageGroupsDataComponent },
-  { path: 'manage-student', component:ManageStudentsDataComponent },
   { path: 'manage-student', component: ManageStudentsComponent },
- 
   { path: 'post-group/:id', component: ShowgrouppostsComponent },
   { path: 'update-teacher/:id', component: ModifyteacherinfoComponent },
   { path: 'add-teacher', component: AddteacherComponent },
@@ -40,6 +40,7 @@ const routes: Routes = [
   { path: 'student-profile/:id', component: StudentProfileComponent },
   { path: 'manage-students', component: ManageStudentsDataComponent },
   { path: 'update-student/:id', component: ModifyinfoComponent },
+  { path: '**', component: HomePageComponent }
 ];
 
 @NgModule({

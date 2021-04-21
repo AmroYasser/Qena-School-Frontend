@@ -52,7 +52,7 @@ export class CreateGroupComponent implements OnInit {
     this.group.teacher_pk = Number(this.myForm.value.formTeacher);
     console.log(this.group)
     this._apiCourseService.insertNewCourse(this.group).subscribe((data) => {
-      this._router.navigateByUrl('/home');
+      this._router.navigateByUrl('/courses');
     }, (err) => {
       console.log(err);
     })

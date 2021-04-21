@@ -1,32 +1,36 @@
-<h2>ادارة المجموعات</h2>
+<div class="container-fluid">
+  <h2>ادارة المجموعات</h2>
 
-<table class="table table-bordered table-hover text-center mt-5">
-  <thead>
-    <tr>
-      <th>الاسم</th>
-      <th>المستوي</th>
-      <th>عدد الحصص</th>
-      <th>تاريخ البدء</th>
-      <th>مواعيد الحصص</th>
-      <th>اسم المدرس</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let g of groups">
-      <td>{{g.name}}</td>
-      <td>{{g.level}}</td>
-      <td>{{g.session_num}}</td>
-      <td>{{g.start_date}}</td>
-      <td>{{g.schedule}}</td>
-      <td>{{g.teacher.name}}</td>
+  <table class="table table-bordered table-hover text-center mt-5">
+    <thead>
+      <tr>
+        <th>الاسم</th>
+        <th>المستوي</th>
+        <th>عدد الحصص</th>
+        <th>تاريخ البدء</th>
+        <th>مواعيد الحصص</th>
+        <th>اسم المدرس</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let g of groups">
+        <td>{{g.name}}</td>
+        <td>{{g.level}}</td>
+        <td>{{g.session_num}}</td>
+        <td>{{g.start_date}}</td>
+        <td>{{g.schedule}}</td>
+        <td>{{g.teacher.name}}</td>
 
-      <td><a [routerLink]="['/post-group/', g.id]" class="btn btn-secondary">عرض</a></td>
-      <td><a [routerLink]="['/manage-group',g.id]" class="btn btn-info">تعديل</a></td>
-      <td><button  class="btn" (click)="delete_group(g.id)"><i style="color:red;font-size:30px;" class="fas fa-trash"></i></button></td>
-    </tr>
-  </tbody>
-</table>
-<a [routerLink]="['/create-group']" class="btn btn-success">اضف مجموعة جديدة</a>
+        <td><a [routerLink]="['/post-group/', g.id]" class="btn btn-secondary">عرض</a></td>
+        <td><a [routerLink]="['/manage-group',g.id]" class="btn btn-info">تعديل</a></td>
+        <td><button class="btn" (click)="delete_group(g.id)"><i style="color:red;font-size:30px;"
+              class="fas fa-trash"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+  <a [routerLink]="['/create-group']" class="btn btn-success">اضف مجموعة جديدة</a>
+
+</div>

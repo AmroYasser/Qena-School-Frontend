@@ -25,6 +25,7 @@ import { StudentProfileComponent } from './components/student/student-profile/st
 import { ManageStudentsComponent } from './components/admin/manage-students/manage-students.component';
 import { ManageStudentsDataComponent } from './components/admin/manage-students-data/manage-students.component';
 import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.component';
+import { HomePageComponent } from './components/main-layout/home-page/home-page.component';
 
 @NgModule({
   imports: [
@@ -54,11 +55,11 @@ import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.
     AddteacherComponent,
     CreateStudentComponent,
     StudentProfileComponent,
-    ManageStudentsDataComponent,
     ManageStudentsComponent,
     ManageStudentsDataComponent,
     ModifyinfoComponent,
     ManageStudentsDataComponent,
+    HomePageComponent,
   ],
 
   providers: [],
