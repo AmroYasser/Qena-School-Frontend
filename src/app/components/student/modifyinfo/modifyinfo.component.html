@@ -1,47 +1,40 @@
 <div class="container-fluid">
-  <div class="row mt-5">
-    <div class="col-md-4">
-      <div class="card">
+  <h2 class="my-5">تعديل بيانات الطالب</h2>
 
-        <div class="card-body">
-          <h4 class="card-title"> الطالب / {{student.name}}</h4>
-        </div>
+  <div class="row">
 
-        <img class="card-img-top img-fluid rounded" [src]="student.image" alt="Card image">
-        <form enctype="multipart/form-data">
-          <div class="form-group">
-            <label for=""></label>
-            <input type="file" class="form-control-file" (change)="onFileselected($event)" name="image" id=""
-              placeholder="" aria-describedby="fileHelpId">
-            <small id="fileHelpId" class="form-text text-muted">تعديل الصورة</small>
-          </div>
-        </form>
+    <div class="col-lg-3">
+      <img class="card-img-top img-fluid rounded" [src]="student.image" alt="Card image">
+    </div>
+
+    <form class="col-lg-6" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">الاسم</label>
+        <input type="text" class="form-control" maxlength="50" name="name" id="exampleInputEmail1"
+          aria-describedby="emailHelp" [(ngModel)]="student.name">
       </div>
-    </div>
-    <div class="col-md-4">
-      <form enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="exampleInputEmail1">الاسم</label>
-          <input type="text" class="form-control" maxlength="50" name="name" id="exampleInputEmail1"
-            aria-describedby="emailHelp" [(ngModel)]="student.name">
-        </div>
 
-        <div class="form-group">
-          <label for="">المستوي</label>
-          <select class="form-control" name="level" [(ngModel)]="student.level" id="">
-            <option *ngFor="let lvl of levels" [value]="lvl">{{lvl}}</option>
-          </select>
-        </div>
+      <div class="form-group">
+        <label for="level">المستوي</label>
+        <select class="form-control" name="level" [(ngModel)]="student.level" id="">
+          <option *ngFor="let lvl of levels" [value]="lvl">{{lvl}}</option>
+        </select>
+      </div>
 
-        <div class="form-group">
-          <label for="exampleInputPassword1">الهاتف</label>
-          <input type="text" class="form-control" name="phone" id="exampleInputPassword1" [(ngModel)]="student.phone">
-        </div>
+      <div class="form-group">
+        <label for="phone">الهاتف</label>
+        <input type="text" class="form-control" name="phone" id="exampleInputPassword1" [(ngModel)]="student.phone">
+      </div>
 
-        <button type="submit" class="btn btn-info" (click)="save()">حفظ</button>
-      </form>
+      <div class="form-group">
+        <label for="image"></label>
+        <input type="file" class="form-control-file" (change)="onFileselected($event)" name="image" id="" placeholder=""
+          aria-describedby="fileHelpId">
+        <small id="fileHelpId" class="form-text text-muted">تعديل الصورة</small>
+      </div>
 
-    </div>
+      <button type="submit" class="btn btn-info" (click)="save()">حفظ</button>
+    </form>
   </div>
 
 </div>

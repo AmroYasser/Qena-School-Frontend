@@ -1,27 +1,34 @@
 <div class="container">
   <h2 class="my-5">تعديل بيانات المدرس</h2>
-  <form class="col-lg-6 mx-auto" enctype="multipart/form-data">
-    <div class="form-group">
-      <label for="exampleInputEmail1">الاسم</label>
-      <input type="text" class="form-control" maxlength="50" name="name" id="exampleInputEmail1"
-        aria-describedby="emailHelp" [(ngModel)]="teacher.name">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">الهاتف</label>
-      <input type="text" class="form-control" name="phone" id="exampleInputPassword1" [(ngModel)]="teacher.phone">
+
+  <div class="row">
+    <div class="col-lg-3">
+      <img class="card-img-top img-fluid rounded" [src]="teacher.image" alt="Card image">
     </div>
 
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">الوصف</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"
-        [(ngModel)]="teacher.description"></textarea>
-    </div>
+    <form class="col-lg-6 mx-auto" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="exampleInputEmail1">الاسم</label>
+        <input type="text" class="form-control" maxlength="50" name="name" id="exampleInputEmail1"
+          aria-describedby="emailHelp" [(ngModel)]="teacher.name">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">الهاتف</label>
+        <input type="text" class="form-control" name="phone" id="exampleInputPassword1" [(ngModel)]="teacher.phone">
+      </div>
 
-    <div class="form-group">
-      <label for="exampleFormControlFile1">اختر الصورة</label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image"
-        (change)="OnImageChange($event)">
-    </div>
-    <button type="submit" class="btn btn-info" (click)="save()">حفظ</button>
-  </form>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">الوصف</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"
+          [(ngModel)]="teacher.description"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlFile1">اختر الصورة</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image"
+          (change)="OnImageChange($event)">
+      </div>
+      <button type="submit" class="btn btn-info" (click)="save()">حفظ</button>
+    </form>
+  </div>
 </div>
