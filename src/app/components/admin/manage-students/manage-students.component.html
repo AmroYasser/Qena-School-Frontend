@@ -1,24 +1,27 @@
-<h2>ادارة اشتراكات الطلاب</h2>
+<div class="container-fluid">
+  <h2>ادارة اشتراكات الطلاب</h2>
 
-<table class="table table-bordered table-hover text-center mt-5">
-  <thead>
-    <tr>
-      <th>اسم الطالب</th>
-      <th>اسم المدرس</th>
-      <th>المجموعة</th>
-      <th>الصف</th>
-      <th>رقم الهاتف</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let mem of memberships">
-      <td>{{mem.student.name}}</td>
-      <td>{{mem.group.teacher.name}}</td>
-      <td>{{mem.group.name}}</td>
-      <td>{{mem.group.level}}</td>
-      <td>{{mem.student.phone}}</td>
-      <td><a (click)="activate(mem.id)" [hidden]="mem.status=='active'" class="btn btn-secondary">تأكيد</a></td>
-      <td><i (click)="deleteMembership(mem.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i></td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table table-bordered table-hover text-center mt-5">
+    <thead>
+      <tr>
+        <th>اسم الطالب</th>
+        <th>اسم المدرس</th>
+        <th>المجموعة</th>
+        <th>الصف</th>
+        <th>رقم الهاتف</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mem of memberships">
+        <td>{{mem.student.name}}</td>
+        <td>{{mem.group.teacher.name}}</td>
+        <td>{{mem.group.name}}</td>
+        <td>{{mem.group.level}}</td>
+        <td>{{mem.student.phone}}</td>
+        <td><a (click)="activate(mem.id)" [hidden]="mem.status=='active'" class="btn btn-secondary">تأكيد</a></td>
+        <td><i (click)="deleteMembership(mem.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

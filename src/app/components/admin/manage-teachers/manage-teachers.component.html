@@ -1,25 +1,27 @@
-<h2>ادارة المدرسين</h2>
+<div class="container-fluid">
+  <h2>ادارة المدرسين</h2>
 
-<table class="table table-bordered table-hover text-center mt-5">
-  <thead>
-    <tr>
-      <th>الاسم</th>
-      <th>الوصف</th>
-      <th>رقم الهاتف</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let t of teachers">
-      <td>{{t.name}}</td>
-      <td>{{t.description}}</td>
-      <td>{{t.phone}}</td>
-      <td><a [routerLink]="['/show-teacher',t.id]" class="btn btn-secondary">عرض</a></td>
-      <td><a [routerLink]="['/update-teacher', t.id]" class="btn btn-info">تعديل</a></td>
-      <td><a (click)="deleteTeacher(t.id)" class="btn btn-danger">حذف</a></td>
-    </tr>
-  </tbody>
-</table>
-<a href="#" class="btn btn-success">اضف مدرس جديد</a>
+  <table class="table table-bordered table-hover text-center mt-5">
+    <thead>
+      <tr>
+        <th>الاسم</th>
+        <th>الوصف</th>
+        <th>رقم الهاتف</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of teachers">
+        <td>{{t.name}}</td>
+        <td>{{t.description}}</td>
+        <td>{{t.phone}}</td>
+        <td><a [routerLink]="['/show-teacher',t.id]" class="btn btn-secondary">عرض</a></td>
+        <td><a [routerLink]="['/update-teacher', t.id]" class="btn btn-info">تعديل</a></td>
+        <td><a (click)="deleteTeacher(t.id)" class="btn btn-danger">حذف</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="#" class="btn btn-success">اضف مدرس جديد</a>
+</div>

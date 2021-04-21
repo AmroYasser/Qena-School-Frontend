@@ -1,35 +1,38 @@
-<div class="row my-3">
-  <div class="col-md-4">
-    <div class="card" dir="rtl">
-      <img class="card-img-top" src="assets/img_avatar1.png" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">أ / {{teacher?.name}}</h4>
+<div class="container">
+  <div class="row my-3">
+    <div class="col-md-4">
+      <div class="card" dir="rtl">
+        <img class="card-img-top" src="{{teacher?.image}}" alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">أ / {{teacher?.name}}</h4>
+        </div>
       </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="jumbotron" style="overflow:auto;">
+        <h3>نبذة مختصرة عني</h3>
+        <hr class="w-50 float-left">
+        <p class="w-100 float-left">{{teacher?.description}}</p>
+      </div>
+      <div class="jumbotron" style="overflow:auto;">
+        <h3>معلومات التواصل</h3>
+        <hr class="w-50 float-left">
+        <ul class="float-left w-100 list-unstyled">
+          <li class="ml-3">رقم تليفون : <span>{{teacher?.phone}}</span></li>
+        </ul>
+      </div>
+      <div class="jumbotron" style="overflow:auto;">
+        <h3>المجموعات</h3>
+        <hr class="w-50 float-left">
+        <div class="float-left w-100">
+          <a class="btn btn-primary m-1" *ngFor="let g of teacher_groups" [routerLink]="['/tgroup/', g.id]">{{g.name}}
+            - {{g.level}}</a>
+        </div>
+      </div>
+      <a [routerLink]="['/create-group']" class="btn btn-success">انشاء مجموعة</a>
+      <a [routerLink]="['/update-teacher', id]" class="btn btn-primary m-1 float-right">تعديل الملف الشخصي</a>
     </div>
   </div>
 
-  <div class="col-md-8">
-    <div class="jumbotron" style="overflow:auto;">
-      <h3>نبذة مختصرة عني</h3>
-      <hr class="w-50 float-left">
-      <p class="w-100 float-left">{{teacher?.description}}</p>
-    </div>
-    <div class="jumbotron" style="overflow:auto;">
-      <h3>معلومات التواصل</h3>
-      <hr class="w-50 float-left">
-      <ul class="float-left w-100 list-unstyled">
-        <li class="ml-3">رقم تليفون : <span>{{teacher?.phone}}</span></li>
-      </ul>
-    </div>
-    <div class="jumbotron" style="overflow:auto;">
-      <h3>المجموعات</h3>
-      <hr class="w-50 float-left">
-      <div class="float-left w-100">
-        <a class="btn btn-primary m-1" *ngFor="let g of teacher_groups" [routerLink]="['/tgroup/', g.id]">{{g.name}}
-          - {{g.level}}</a>
-      </div>
-    </div>
-    <a [routerLink]="['/create-group']" class="btn btn-success">انشاء مجموعة</a>
-    <a [routerLink]="['/update-teacher', id]" class="btn btn-primary m-1 float-right">تعديل الملف الشخصي</a>
-  </div>
 </div>
