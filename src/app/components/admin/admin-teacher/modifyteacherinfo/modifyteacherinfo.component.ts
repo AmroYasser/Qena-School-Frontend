@@ -20,8 +20,7 @@ export class ModifyteacherinfoComponent implements OnInit {
   constructor(private _teacherserv: TeachersService, private _activatedRoute: ActivatedRoute, private _router: Router, private _http: HttpClient) {
     this.id = 0;
     this.teacher = { name: "", description: "", phone: "", image: undefined }
-    console.log("cons")
-
+    this.image = null;
   }
 
   ngOnInit(): void {
@@ -39,8 +38,10 @@ export class ModifyteacherinfoComponent implements OnInit {
     formData.append("name", this.teacher.name);
     formData.append("description", this.teacher.description);
     formData.append("phone", this.teacher.phone);
-    formData.append("image", this.image);
-    this._http.put(`http://127.0.0.1:8000/teacher/${this.id}/`, formData).subscribe((res) => this._router.navigateByUrl(`/show-teacher/${this.teacher.id}`), err => console.log(err))
+    if (this.image == null) {
+      formData.append("image", this.image);
+    }
+    this._http.patch(`http://127.0.0.1:8000/teacher/${this.id}/`, formData).subscribe((res) => this._router.navigateByUrl(`/show-teacher/${this.teacher.id}`), err => console.log(err))
   }
 
 }

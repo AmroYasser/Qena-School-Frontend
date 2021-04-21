@@ -16,8 +16,9 @@ export class ModifyinfoComponent implements OnInit {
   levels: string[]
   image: File | undefined | any
   constructor(private _studentserv: StudentsService, private _route: ActivatedRoute, private _http: HttpClient, private _router: Router) {
-    this.student = { name: "", level: "", phone: "" }
-    this.id = 0
+    this.student = { name: "", level: "", phone: "" };
+    this.id = 0;
+    this.image = null;
     this.levels = ['اول ابتدائي', 'ثاني ابتدائي', 'ثالث ابتدائي', 'رابع ابتدائي', 'خامس ابتدائي', 'سادس ابتدائي', 'اول اعدادي', 'ثاني اعدادي', 'ثالث اعدادي', 'اول ثانوي', 'ثاني ثانوي', 'ثالث ثانوي', 'اخري']
   }
 
@@ -44,8 +45,10 @@ export class ModifyinfoComponent implements OnInit {
     formData.append('name', this.student.name)
     formData.append('level', this.student.level)
     formData.append('phone', this.student.phone)
-    formData.append('image', this.student.image)
-    this._http.put(`http://127.0.0.1:8000/student/${this.id}/`, formData).subscribe(res => this.reload(),
+    if (this.image != null) {
+      formData.append("image", this.image);
+    }
+    this._http.patch(`http://127.0.0.1:8000/student/${this.id}/`, formData).subscribe(res => this.reload(),
       err => console.log(err))
   }
 
