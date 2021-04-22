@@ -15,9 +15,12 @@
         <a class="nav-link font-weight-bold" href="#">تواصل معنا</a>
       </li>
     </ul>
-    <div id="auth">
-      <a href="#" class="btn btn-secondary">تسجيل دخول</a>
+    <div id="auth" [hidden]="loginserv.is_logged">
+      <a [routerLink]="['/login']" class="btn btn-secondary">تسجيل دخول</a>
       <a href="#" class="btn btn-success ml-2">انشاء حساب</a>
+    </div>
+     <div id="auth" [hidden]="!loginserv.is_logged">
+      <a href="#" class="btn btn-secondary"> تسجيل الخروج</a>
     </div>
   </div>
 </nav>
