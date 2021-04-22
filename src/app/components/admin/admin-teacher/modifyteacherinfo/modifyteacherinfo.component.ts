@@ -43,5 +43,4 @@ export class ModifyteacherinfoComponent implements OnInit {
     }
     this._http.patch(`http://127.0.0.1:8000/teacher/${this.id}/`, formData).subscribe((res) => this._router.navigateByUrl(`/show-teacher/${this.teacher.id}`), err => console.log(err))
   }
-
 }

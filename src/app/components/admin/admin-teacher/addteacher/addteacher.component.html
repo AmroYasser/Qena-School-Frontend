@@ -1,30 +1,54 @@
-<div class="container">
-  <h3 class="my-5">اضافة مدرس</h3>
+<div class="container mb-3">
+  <h3 class="my-5 text-center">اضافة مدرس</h3>
   <form [formGroup]="myForm" class="col-lg-6 mx-auto" (ngSubmit)="add_teacher()" enctype="multipart/form-data">
     <div class="form-group">
       <label for="name">الاسم</label>
       <input formControlName="formName" type="text" name="name" id="name" class="form-control" placeholder=""
         aria-describedby="helpId">
     </div>
-
+    <div class="form-group">
+      <label for="email">البريد الاليكتروني :</label>
+      <input formControlName="formEmail" type="email" name="email" id="email" class="form-control">
+      <div class="alert alert-danger" role="alert"
+        *ngIf="myForm.controls['formEmail'].invalid && myForm.controls['formEmail'].touched">
+        <p *ngIf="myForm.controls['formEmail'].errors?.required">هذا الحقل مطلوب</p>
+        <p *ngIf="myForm.controls['formEmail'].errors?.email">ادخل بريد اليكتروني صحيح وغير موجود مسبقا</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">كلمة المرور :</label>
+      <input formControlName="formPassword" type="password" name="password" id="password" class="form-control">
+      <div class="alert alert-danger" role="alert"
+        *ngIf="myForm.controls['formPassword'].invalid && myForm.controls['formPassword'].touched">
+        <p *ngIf="myForm.controls['formPassword'].errors?.required">هذا الحقل مطلوب</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">تأكيد كلمة المرور :</label>
+      <input formControlName="formConfirmPassword" type="password" name="confirmPassword" id="confirmPassword"
+        class="form-control">
+      <div class="alert alert-danger" role="alert"
+        *ngIf="myForm.controls['formConfirmPassword'].invalid && myForm.controls['formConfirmPassword'].touched">
+        <p *ngIf="myForm.controls['formConfirmPassword'].errors?.required">هذا الحقل مطلوب</p>
+        <p *ngIf="myForm.controls['formConfirmPassword'].errors?.confirmedValidator">يجب تطابق القيم في حقول كلمة السر
+        </p>
+      </div>
+    </div>
     <div class="form-group">
       <label for="description">اضافة وصف</label>
       <textarea formControlName="formDescription" class="form-control" name="description" id="description"
         rows="3"></textarea>
     </div>
-
     <div class="form-group">
       <label for="phone">اضافة رقم هاتف</label>
       <input formControlName="formPhone" type="text" name="phone" id="phone" class="form-control" placeholder=""
         aria-describedby="helpId">
     </div>
-
     <div class="form-group">
       <label for="file">اضافة صورة</label>
       <input type="file" class="d-block" (change)="onFileselected($event)" name="file" id="file" placeholder=""
         aria-describedby="fileHelpId">
     </div>
     <input class="btn btn-info" [disabled]="myForm.invalid" type="submit" value="حفظ">
-
   </form>
 </div>
