@@ -1,5 +1,5 @@
-<div class="container">
-  <h2 class="my-5">اضافة طالب</h2>
+<div class="container mb-3">
+  <h2 class="my-5 text-center">اضافة طالب</h2>
 
   <div class="w-100">
     <form class="col-lg-6 mx-auto" [formGroup]="myForm" (ngSubmit)="Add()">
@@ -11,6 +11,34 @@
           <p *ngIf="myForm.controls['formName'].errors?.required">هذا الحقل مطلوب</p>
           <p *ngIf="myForm.controls['formName'].errors?.minlength">اسم الطالب يجب أن يتكون من 3 أحرف حتي 50 حرف</p>
           <p *ngIf="myForm.controls['formName'].errors?.maxlength">اسم الطالب يجب ألا يزيد عن 50 حرف</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">البريد الاليكتروني :</label>
+        <input formControlName="formEmail" type="email" name="email" id="email" class="form-control">
+        <div class="alert alert-danger" role="alert"
+          *ngIf="myForm.controls['formEmail'].invalid && myForm.controls['formEmail'].touched">
+          <p *ngIf="myForm.controls['formEmail'].errors?.required">هذا الحقل مطلوب</p>
+          <p *ngIf="myForm.controls['formEmail'].errors?.email">ادخل بريد اليكتروني صحيح وغير موجود مسبقا</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">كلمة المرور :</label>
+        <input formControlName="formPassword" type="password" name="password" id="password" class="form-control">
+        <div class="alert alert-danger" role="alert"
+          *ngIf="myForm.controls['formPassword'].invalid && myForm.controls['formPassword'].touched">
+          <p *ngIf="myForm.controls['formPassword'].errors?.required">هذا الحقل مطلوب</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">تأكيد كلمة المرور :</label>
+        <input formControlName="formConfirmPassword" type="password" name="confirmPassword" id="confirmPassword"
+          class="form-control">
+        <div class="alert alert-danger" role="alert"
+          *ngIf="myForm.controls['formConfirmPassword'].invalid && myForm.controls['formConfirmPassword'].touched">
+          <p *ngIf="myForm.controls['formConfirmPassword'].errors?.required">هذا الحقل مطلوب</p>
+          <p *ngIf="myForm.controls['formConfirmPassword'].errors?.confirmedValidator">يجب تطابق القيم في حقول كلمة السر
+          </p>
         </div>
       </div>
       <div class="form-group">
@@ -33,8 +61,7 @@
       </div>
       <div class="form-group">
         <label for="image">الصورة :</label>
-        <input (change)="onFileselected($event)" formControlName="formImage" type="file" name="image" id="image"
-          class="d-block">
+        <input (change)="onFileselected($event)" type="file" name="image" id="image" class="d-block">
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">حفظ</button>
     </form>
