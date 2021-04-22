@@ -26,6 +26,7 @@ import { ManageStudentsComponent } from './components/admin/manage-students/mana
 import { ManageStudentsDataComponent } from './components/admin/manage-students-data/manage-students.component';
 import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.component';
 import { HomePageComponent } from './components/main-layout/home-page/home-page.component';
+import { LoginComponent } from './components/Authentication/login/login.component';
 
 @NgModule({
   imports: [
@@ -60,6 +61,7 @@ import { HomePageComponent } from './components/main-layout/home-page/home-page.
     ModifyinfoComponent,
     ManageStudentsDataComponent,
     HomePageComponent,
+    LoginComponent,
   ],
 
   providers: [],
