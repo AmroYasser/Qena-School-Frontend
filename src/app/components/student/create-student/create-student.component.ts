@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { StudentsService } from './../../../../services/students.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -29,7 +30,7 @@ export class CreateStudentComponent implements OnInit {
       }
     }
   }
-  constructor(private _apiStudentService: StudentsService, private _router: Router, private fb: FormBuilder) {
+  constructor(private _apiStudentService: StudentsService, private _http: HttpClient, private _router: Router, private fb: FormBuilder) {
     this.levels = ['اول ابتدائي', 'ثاني ابتدائي', 'ثالث ابتدائي', 'رابع ابتدائي', 'خامس ابتدائي', 'سادس ابتدائي', 'اول اعدادي', 'ثاني اعدادي', 'ثالث اعدادي', 'اول ثانوي', 'ثاني ثانوي', 'ثالث ثانوي', 'اخري']
     this.image = null;
     this.myForm = this.fb.group({
@@ -54,19 +55,26 @@ export class CreateStudentComponent implements OnInit {
 
   Add() {
     const formData = new FormData();
-    const formData2 = new FormData();
+    formData.append('email', this.myForm.value.formEmail)
+    formData.append('password', this.myForm.value.formPassword)
+    formData.append('password1', this.myForm.value.formConfirmPassword)
     formData.append('name', this.myForm.value.formName)
     formData.append('level', this.myForm.value.formLvl)
     formData.append('phone', this.myForm.value.formPhone)
-    formData2.append('email', this.myForm.value.formEmail)
-    formData2.append('password', this.myForm.value.formPassword)
     if (this.image != null) {
       formData.append('image', this.image, this.image.name);
     }
-    this._apiStudentService.insertNewStudent(formData).subscribe((data) => {
-      this._router.navigateByUrl('/home');
+
+    this._http.post("http://127.0.0.1:8000/auth/student-signup", formData).subscribe((data) => {
+      this._router.navigateByUrl('/login');
     }, (err) => {
       console.log(err);
     })
+    // this._apiStudentService.insertNewStudent(formData).subscribe((data) => {
+    //   this._router.navigateByUrl('/home');
+    // }, (err) => {
+    //   console.log(err);
+    // })
+    // student-signup
   }
 }
