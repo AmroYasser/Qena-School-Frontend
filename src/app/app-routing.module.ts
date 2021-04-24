@@ -7,7 +7,6 @@ import { StudentcourseComponent } from './components/student/studentcourse/stude
 import { ShowTeacherComponent } from './components/teacher/show-teacher/show-teacher.component';
 import { ShowGroupComponent } from './components/teacher/show-group/show-group.component';
 import { ManageTeachersComponent } from './components/admin/manage-teachers/manage-teachers.component';
-
 import { ManageGroupComponent } from './components/admin/groups/manage-group/manage-group.component';
 import { ManageGroupsDataComponent } from './components/admin/manage-groups-data/manage-groups-data.component';
 import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
@@ -44,6 +43,7 @@ const routes: Routes = [
   { path: 'update-student/:id', component: ModifyinfoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin-home', component: AdminHomeComponent },
+  { path: 'logout', component: LoginComponent },
   { path: '**', component: HomePageComponent }
 ];
 
