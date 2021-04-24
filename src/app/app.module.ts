@@ -28,6 +28,7 @@ import { HomePageComponent } from './components/main-layout/home-page/home-page.
 import { LoginComponent } from './components/Authentication/login/login.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { LogoutComponent } from './components/Authentication/logout/logout.component';
+import { AddadminComponent } from './components/admin/superuser/addadmin/addadmin.component';
 
 @NgModule({
   imports: [
@@ -65,6 +66,7 @@ import { LogoutComponent } from './components/Authentication/logout/logout.compo
     LoginComponent,
     AdminHomeComponent,
     LogoutComponent,
+    AddadminComponent,
   ],
 
   providers: [],
