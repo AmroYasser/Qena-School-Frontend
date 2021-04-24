@@ -11,6 +11,7 @@ import { LoginserviceService } from 'src/services/loginservice.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
  email:string=''
  password:string=''
  message:string=''
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
   login():void{
    const formData=new FormData()
@@ -61,6 +63,7 @@ export class LoginComponent implements OnInit {
     console.log(this.message)
     }
          )
+
 
   }
 

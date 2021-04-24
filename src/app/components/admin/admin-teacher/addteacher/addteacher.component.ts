@@ -10,30 +10,36 @@ import { Iteacher } from 'src/models/interfaces/iteacher';
   styleUrls: ['./addteacher.component.css']
 })
 export class AddteacherComponent implements OnInit {
-  // phone: string
-  // name: string
-  // description: string
-  // teacher: Iteacher
+
   myForm: FormGroup
   image?: File | undefined | any
-  // "img_avatar1.png"
 
+  ConfirmedValidator(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+      if (matchingControl.errors && !matchingControl.errors.confirmedValidator) {
+        return;
+      }
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ confirmedValidator: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
+    }
+  }
   constructor(private _http: HttpClient, private _router: Router, private fb: FormBuilder) {
-    // this.phone = ""
-    // this.name = ""
-    // this.description = ""
-
-    // this.teacher = {
-    //   name: "", phone: "", description: ""
-    // };
-    // this.image = null
-
-
+    this.image = null
     this.myForm = this.fb.group({
       formName: ['', [Validators.required, Validators.minLength(3)]],
+      formEmail: ['', [Validators.required, Validators.email]],
+      formPassword: ['', [Validators.required]],
+      formConfirmPassword: ['', [Validators.required]],
       formDescription: ['', [Validators.required]],
       formPhone: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
-    })
+    }, {
+      validator: this.ConfirmedValidator('formPassword', 'formConfirmPassword')
+    });
   }
 
   ngOnInit(): void {
@@ -42,39 +48,20 @@ export class AddteacherComponent implements OnInit {
 
   onFileselected(event: any) {
     this.image = event.target.files[0]
-    console.log(this.image)
-    console.log(typeof this.image);
   }
 
   add_teacher() {
-    console.log("in");
-    // console.log(this.image);
-    const formData = new FormData()
+
+    const formData = new FormData();
+    const formData2 = new FormData();
     formData.append('name', this.myForm.value.formName)
     formData.append('description', this.myForm.value.formDescription)
     formData.append('phone', this.myForm.value.formPhone)
-    console.log("in 2");
-
-    formData.append('image', this.image)
-
-    // fetch(errimage.src)
-    //   .then(res => res.blob())
-    //   .then(blob => {
-    //     this.image = new File([blob], 'img_avatar1.png', blob)
-    //     console.log(this.image)
-    //   })
-
-
-    // formData.append('image', this.image)
-    // if (this.image == undefined) {
-    //   this.image = null;
-    //   // new File(["image"], "assets/img_avatar1.png");
-    //   formData.append('image', this.image)
-    // }
-    // else {
-    //   formData.append('image', this.image, this.image.name)
-    // }
-    console.log(formData);
+    formData2.append('email', this.myForm.value.formEmail)
+    formData2.append('password', this.myForm.value.formPassword)
+    if (this.image != null) {
+      formData.append('image', this.image)
+    }
     this._http.post('http://127.0.0.1:8000/teacher/', formData,
       { responseType: 'text' }).subscribe(res => this._router.navigateByUrl('/manage-teachers'),
         err => console.log(err))

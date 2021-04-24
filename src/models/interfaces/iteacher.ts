@@ -4,4 +4,5 @@ export interface Iteacher {
   description: string;
   phone: string;
   image?: File;
+  user_id?: number;
 }

@@ -1,7 +1,8 @@
 export interface IStudent {
-  id?: number,
-  name: string,
-  level: string,
-  phone: string,
-  image?: any
+  id?: number;
+  name: string;
+  level: string;
+  phone: string;
+  image?: any;
+  user_id?: number;
 }
