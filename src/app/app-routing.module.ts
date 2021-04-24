@@ -42,6 +42,7 @@ const routes: Routes = [
   { path: 'manage-students', component: ManageStudentsDataComponent },
   { path: 'update-student/:id', component: ModifyinfoComponent },
   { path: 'login', component: LoginComponent },
+  {path:'logout',component:LoginComponent},
   { path: '**', component: HomePageComponent }
 ];
 

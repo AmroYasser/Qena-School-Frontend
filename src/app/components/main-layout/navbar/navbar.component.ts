@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IUser } from 'src/models/interfaces/iuser';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { LoginserviceService } from 'src/services/loginservice.service';
 
 @Component({
@@ -8,24 +10,27 @@ import { LoginserviceService } from 'src/services/loginservice.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
- user:IUser|any
-  constructor(public loginserv:LoginserviceService) { 
-   
+  is_loggedIn:boolean=false
+  constructor(public _loginserv:LoginserviceService,private http:HttpClient,private router:Router) { 
   }
 
   ngOnInit(): void {
-    // this.loginserv.get_user().subscribe((res)=>{
-    //   this.user=res //to get current logged in user
-    //   this.loginserv.is_logged=true
-    //   console.log(this.user)
-    // },(err)=>
-    // {
-    //   console.log(err)
-    //   this.loginserv.is_logged=false
-    
-    // }
-    // )
+   this.is_loggedIn=JSON.parse(<string>localStorage.getItem("isLoggedIn"))
+   
+  }
+  logout():void{
+    this.http.post('http://127.0.0.1:8000/auth/logout',{withCredentials:true}).subscribe(
+      ()=>{
+        localStorage.setItem("isLoggedIn","false")
+        this.is_loggedIn=JSON.parse(<string>localStorage.getItem("isLoggedIn"))
+      this.router.navigate(['/login'])
+      },
+    err=>console.log(true)
+    )
+  }
 
+  login_status():boolean{
+    return JSON.parse(<string>localStorage.getItem("isLoggedIn"))
   }
 
 }
