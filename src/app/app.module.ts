@@ -15,7 +15,6 @@ import { ShowTeacherComponent } from './components/teacher/show-teacher/show-tea
 import { ShowGroupComponent } from './components/teacher/show-group/show-group.component';
 import { ManageTeachersComponent } from './components/admin/manage-teachers/manage-teachers.component';
 import { ManageGroupComponent } from './components/admin/groups/manage-group/manage-group.component';
-
 import { ManageGroupsDataComponent } from './components/admin/manage-groups-data/manage-groups-data.component';
 import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
 import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/modifyteacherinfo/modifyteacherinfo.component';

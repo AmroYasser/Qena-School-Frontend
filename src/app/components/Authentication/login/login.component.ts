@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/manage-teachers'])
         }
         if (data.role == 'teacher') {
-          this.router.navigate(['/show-teacher', 1])
+          this.router.navigate(['/home'])
         }
 
       },
@@ -68,4 +68,3 @@ export class LoginComponent implements OnInit {
   }
 
 }
-

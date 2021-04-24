@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'update-student/:id', component: ModifyinfoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin-home', component: AdminHomeComponent },
-  { path: 'logout', component: LoginComponent },
+  { path: ' logout', component: LoginComponent },
   { path: '**', component: HomePageComponent }
 ];
 
