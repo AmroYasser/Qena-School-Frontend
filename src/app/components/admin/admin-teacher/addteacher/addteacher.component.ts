@@ -53,18 +53,17 @@ export class AddteacherComponent implements OnInit {
   add_teacher() {
 
     const formData = new FormData();
-    const formData2 = new FormData();
     formData.append('name', this.myForm.value.formName)
     formData.append('description', this.myForm.value.formDescription)
     formData.append('phone', this.myForm.value.formPhone)
-    formData2.append('email', this.myForm.value.formEmail)
-    formData2.append('password', this.myForm.value.formPassword)
+    formData.append('email', this.myForm.value.formEmail)
+    formData.append('password', this.myForm.value.formPassword)
+    formData.append('password1', this.myForm.value.formConfirmPassword)
     if (this.image != null) {
       formData.append('image', this.image)
     }
-    this._http.post('http://127.0.0.1:8000/teacher/', formData,
-      { responseType: 'text' }).subscribe(res => this._router.navigateByUrl('/manage-teachers'),
-        err => console.log(err))
+    this._http.post('http://127.0.0.1:8000/auth/teacher-signup', formData).subscribe(res => this._router.navigateByUrl('/manage-teachers'),
+      err => console.log(err))
   }
 
 }

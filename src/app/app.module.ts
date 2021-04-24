@@ -15,7 +15,6 @@ import { ShowTeacherComponent } from './components/teacher/show-teacher/show-tea
 import { ShowGroupComponent } from './components/teacher/show-group/show-group.component';
 import { ManageTeachersComponent } from './components/admin/manage-teachers/manage-teachers.component';
 import { ManageGroupComponent } from './components/admin/groups/manage-group/manage-group.component';
-
 import { ManageGroupsDataComponent } from './components/admin/manage-groups-data/manage-groups-data.component';
 import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
 import { ModifyteacherinfoComponent } from './components/admin/admin-teacher/modifyteacherinfo/modifyteacherinfo.component';
@@ -27,6 +26,7 @@ import { ManageStudentsDataComponent } from './components/admin/manage-students-
 import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.component';
 import { HomePageComponent } from './components/main-layout/home-page/home-page.component';
 import { LoginComponent } from './components/Authentication/login/login.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { LogoutComponent } from './components/Authentication/logout/logout.component';
 
 @NgModule({
@@ -63,6 +63,7 @@ import { LogoutComponent } from './components/Authentication/logout/logout.compo
     ManageStudentsDataComponent,
     HomePageComponent,
     LoginComponent,
+    AdminHomeComponent,
     LogoutComponent,
   ],
 
