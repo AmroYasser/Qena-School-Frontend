@@ -20,6 +20,7 @@ import { ManageStudentsDataComponent } from './components/admin/manage-students-
 import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.component';
 import { HomePageComponent } from './components/main-layout/home-page/home-page.component';
 import { LoginComponent } from './components/Authentication/login/login.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'manage-students', component: ManageStudentsDataComponent },
   { path: 'update-student/:id', component: ModifyinfoComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'admin-home', component: AdminHomeComponent },
   { path: '**', component: HomePageComponent }
 ];
 

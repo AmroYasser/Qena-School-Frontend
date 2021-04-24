@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     formData.append('email', this.email)
     formData.append('password', this.password)
 
+
     this.http.post('http://127.0.0.1:8000/auth/login', formData, { withCredentials: true }).subscribe((res) => {
       console.log(res);
       // document.cookie = res.toString();
@@ -36,8 +37,6 @@ export class LoginComponent implements OnInit {
         console.log(res, "check")
       },
         err => console.log(err));
-      ;
-
       this.router.navigate(['/home'])
     },
       (err) => {
