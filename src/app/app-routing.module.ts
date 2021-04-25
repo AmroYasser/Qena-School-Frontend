@@ -7,7 +7,6 @@ import { StudentcourseComponent } from './components/student/studentcourse/stude
 import { ShowTeacherComponent } from './components/teacher/show-teacher/show-teacher.component';
 import { ShowGroupComponent } from './components/teacher/show-group/show-group.component';
 import { ManageTeachersComponent } from './components/admin/manage-teachers/manage-teachers.component';
-
 import { ManageGroupComponent } from './components/admin/groups/manage-group/manage-group.component';
 import { ManageGroupsDataComponent } from './components/admin/manage-groups-data/manage-groups-data.component';
 import { ShowgrouppostsComponent } from './components/student/showgroupposts/showgroupposts.component';
@@ -20,6 +19,7 @@ import { ManageStudentsDataComponent } from './components/admin/manage-students-
 import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.component';
 import { HomePageComponent } from './components/main-layout/home-page/home-page.component';
 import { LoginComponent } from './components/Authentication/login/login.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -42,7 +42,8 @@ const routes: Routes = [
   { path: 'manage-students', component: ManageStudentsDataComponent },
   { path: 'update-student/:id', component: ModifyinfoComponent },
   { path: 'login', component: LoginComponent },
-  {path:'logout',component:LoginComponent},
+  { path: 'admin-home', component: AdminHomeComponent },
+  { path: ' logout', component: LoginComponent },
   { path: '**', component: HomePageComponent }
 ];
 

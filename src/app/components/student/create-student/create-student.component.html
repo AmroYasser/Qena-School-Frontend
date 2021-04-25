@@ -56,7 +56,9 @@
           <p *ngIf="myForm.controls['formPhone'].errors?.required">هذا الحقل مطلوب</p>
           <p *ngIf="myForm.controls['formPhone'].errors?.maxlength">رقم الهاتف يحب أن يتكون من 11 رقم</p>
           <p *ngIf="myForm.controls['formPhone'].errors?.minlength">رقم الهاتف يحب أن يتكون من 11 رقم</p>
+
           <p *ngIf="myForm.controls['formPhone'].errors?.pattern">رقم الهاتف  غير صحيح</p>
+
         </div>
       </div>
       <div class="form-group">
