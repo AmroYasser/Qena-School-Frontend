@@ -70,11 +70,5 @@ export class CreateStudentComponent implements OnInit {
     }, (err) => {
       console.log(err);
     })
-    // this._apiStudentService.insertNewStudent(formData).subscribe((data) => {
-    //   this._router.navigateByUrl('/home');
-    // }, (err) => {
-    //   console.log(err);
-    // })
-    // student-signup
   }
 }

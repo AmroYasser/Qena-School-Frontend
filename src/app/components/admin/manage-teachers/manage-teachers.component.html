@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <h2>ادارة المدرسين</h2>
+<div class="container-fluid mb-3">
+  <h2 class="text-center">ادارة المدرسين</h2>
 
   <table class="table table-bordered table-hover text-center mt-5">
     <thead>
@@ -19,9 +19,9 @@
         <td>{{t.phone}}</td>
         <td><a [routerLink]="['/show-teacher',t.id]" class="btn btn-secondary">عرض</a></td>
         <td><a [routerLink]="['/update-teacher', t.id]" class="btn btn-info">تعديل</a></td>
-        <td><a (click)="deleteTeacher(t.id)" class="btn btn-danger">حذف</a></td>
+        <td><i style="color:red;font-size:30px;" class="fas fa-trash" (click)="deleteTeacher(t.id)"></i></td>
       </tr>
     </tbody>
   </table>
-  <a href="#" class="btn btn-success">اضف مدرس جديد</a>
+  <a [routerLink]="['/add-teacher']" class="btn btn-success">اضف مدرس جديد</a>
 </div>
