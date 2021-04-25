@@ -1,7 +1,7 @@
 export interface IAdmin {
   id?: number;
   name: string;
-  manager: any;
+  manager: number;
   ssn: string;
   user_id?: number;
 }

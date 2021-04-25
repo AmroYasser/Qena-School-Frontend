@@ -55,14 +55,35 @@ export class LoginComponent implements OnInit {
         }
 
       },
-        err => console.log(err));
-    },
-      (err) => {
-        this.message = err.error.detail;
-        ;
-        console.log(this.message)
-      }
-    )
+
+        err=>console.log(err)
+        
+      )
+    }
+    if(data.role=='admin'){
+      this.router.navigate(['/manage-teachers'])
+    }
+    if(data.role=='teacher'){
+      this.loginserv.get_teacher_user(data.id).subscribe((res)=>{
+        this.loginserv.current_teacher=res
+        localStorage.setItem('teacher_id',this.loginserv.current_teacher.id)
+        this.router.navigate(['/show-teacher',res.id])
+      },
+      err=>console.log(err)
+      )
+     
+    }
+  
+  },
+    err=>console.log(err));   
+},
+   (err)=>{
+     this.message=err.error.detail;
+     ;
+    console.log(this.message)
+    }
+         )
+
 
 
   }

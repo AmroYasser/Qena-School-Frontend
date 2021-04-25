@@ -24,6 +24,11 @@ public current_teacher:Iteacher|any
    get_student_user(id:number):Observable<IStudent>{
      return this.http.get<IStudent>(`http://127.0.0.1:8000/get-user-student/${id}`)
    }
+
+   get_teacher_user(id:number):Observable<IStudent>{
+    return this.http.get<IStudent>(`http://127.0.0.1:8000/get-teacher-user/${id}`)
+  }
+
    change_login_status():void{
      this.is_logged=!this.is_logged
    }
