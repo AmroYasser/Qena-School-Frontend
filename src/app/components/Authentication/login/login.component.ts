@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/student-profile', this.loginserv.current_student.id])
 
             },
-        err=>console.log(err) 
+
       )
     }
     if(data.role=='admin'){
@@ -69,6 +69,7 @@ export class LoginComponent implements OnInit {
     console.log(this.message)
     }
          )
+
 
 
   }
