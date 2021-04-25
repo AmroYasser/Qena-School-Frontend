@@ -1,0 +1,21 @@
+<div class="container-fluid mb-3">
+  <h2 class="text-center">ادارة المسؤليين</h2>
+
+  <table class="table table-bordered table-hover text-center mt-5">
+    <thead>
+      <tr>
+        <th>الاسم</th>
+        <th>الرقم القومي</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let admin of admins">
+        <td>{{admin.name}}</td>
+        <td>{{admin.ssn}}</td>
+        <td><i style="color:red;font-size:30px;" class="fas fa-trash" (click)="deletea_admin(admin.id)"></i></td>
+      </tr>
+    </tbody>
+  </table>
+  <a [routerLink]="['/add-admin']" class="btn btn-success">اضف مسؤل جديد</a>
+</div>

@@ -20,6 +20,8 @@ import { ModifyinfoComponent } from './components/student/modifyinfo/modifyinfo.
 import { HomePageComponent } from './components/main-layout/home-page/home-page.component';
 import { LoginComponent } from './components/Authentication/login/login.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { ManageadminComponent } from './components/admin/superuser/manageadmin/manageadmin.component';
+import { AddadminComponent } from './components/admin/superuser/addadmin/addadmin.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -43,7 +45,11 @@ const routes: Routes = [
   { path: 'update-student/:id', component: ModifyinfoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin-home', component: AdminHomeComponent },
-  { path: ' logout', component: LoginComponent },
+  { path: 'logout', component: LoginComponent },
+  { path: 'manage-admin', component: ManageadminComponent },
+  { path: 'admin-home', component: AdminHomeComponent },
+  { path: 'add-admin', component: AddadminComponent },
+
   { path: '**', component: HomePageComponent }
 ];
 

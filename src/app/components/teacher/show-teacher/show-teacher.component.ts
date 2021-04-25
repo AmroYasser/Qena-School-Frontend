@@ -23,6 +23,8 @@ export class ShowTeacherComponent implements OnInit {
       
     this.id = this.activedRoute.snapshot.params["id"];
   if(this.id==localStorage.getItem('teacher_id')){
+    console.log("yes");
+    
     this._apiTeacherService.getSpecificTeacher(this.id).subscribe((res) => {
       this.teacher = res;
     }, (err) => {
@@ -35,10 +37,17 @@ export class ShowTeacherComponent implements OnInit {
     });
   }
   else{
+    console.log("else");
+    
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
+      if(localStorage.getItem('teacher_id')!=null){
       this.router.navigate(['./'], { relativeTo: this.activedRoute });
       this.router.navigate(['/show-teacher',localStorage.getItem('teacher_id')])
+    }
+    else{
+      this.router.navigate(['/home'])
+    }
     
   }
 }
