@@ -38,7 +38,7 @@ export class CreateStudentComponent implements OnInit {
       formEmail: ['', [Validators.required, Validators.email]],
       formPassword: ['', [Validators.required]],
       formConfirmPassword: ['', [Validators.required]],
-      formLvl: ['', [Validators.required, Validators.minLength(5)]],
+      formLvl: ['', [Validators.required, Validators.minLength(3)]],
       formPhone: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11), Validators.pattern('^(010|011|012|015)[0-9]{8}$')]],
     }, {
       validator: this.ConfirmedValidator('formPassword', 'formConfirmPassword')

@@ -51,7 +51,14 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/manage-teachers'])
     }
     if(data.role=='teacher'){
-      this.router.navigate(['/home'])
+      this.loginserv.get_teacher_user(data.id).subscribe((res)=>{
+        this.loginserv.current_teacher=res
+        localStorage.setItem('teacher_id',this.loginserv.current_teacher.id)
+        this.router.navigate(['/show-teacher',res.id])
+      },
+      err=>console.log(err)
+      )
+     
     }
   
   },

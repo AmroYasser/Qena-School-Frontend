@@ -11,12 +11,12 @@ import { LoginserviceService } from 'src/services/loginservice.service';
 })
 export class NavbarComponent implements OnInit {
   is_loggedIn:boolean=false
+  loggedName:string|any
   constructor(public _loginserv:LoginserviceService,private http:HttpClient,private router:Router) { 
   }
 
   ngOnInit(): void {
    this.is_loggedIn=JSON.parse(<string>localStorage.getItem("isLoggedIn"))
-   
   }
   logout():void{
     this.http.post('http://127.0.0.1:8000/auth/logout',{withCredentials:true}).subscribe(
@@ -32,5 +32,6 @@ export class NavbarComponent implements OnInit {
   login_status():boolean{
     return JSON.parse(<string>localStorage.getItem("isLoggedIn"))
   }
+
 
 }

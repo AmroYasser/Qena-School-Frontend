@@ -17,7 +17,7 @@
     </ul>
     <div id="auth" [hidden]="login_status()">
       <a [routerLink]="['/login']" class="btn btn-secondary">تسجيل دخول</a>
-      <a href="#" class="btn btn-success ml-2">انشاء حساب</a>
+      <a  [routerLink]="['/add-student']" class="btn btn-success ml-2">انشاء حساب</a>
     </div>
      <div id="auth" [hidden]="!login_status()">
       <button (click)="logout()"  class="btn btn-secondary"> تسجيل الخروج</button>

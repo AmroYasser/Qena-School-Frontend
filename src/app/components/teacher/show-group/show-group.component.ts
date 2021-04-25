@@ -19,7 +19,7 @@ export class ShowGroupComponent implements OnInit {
   group_id: number
   group: any
 
-  constructor(private _group: GroupService, private _router: Router, route: ActivatedRoute) {
+  constructor(private _group: GroupService, private _router: Router,private route: ActivatedRoute) {
     this.post = {
       title: '', content: '', group_pk: 0
     }
@@ -46,6 +46,9 @@ export class ShowGroupComponent implements OnInit {
     }
     this._group.addPost(this.post).subscribe((data) => {
       this._router.navigateByUrl(`/tgroup/${this.group_id}`);
+      this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this._router.onSameUrlNavigation = 'reload';
+      this._router.navigate(['./'], { relativeTo: this.route });
     }, (err) => console.log(err))
 
   }

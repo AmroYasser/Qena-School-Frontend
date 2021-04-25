@@ -11,22 +11,36 @@ import { TeachersService } from 'src/services/teachers.service';
 })
 export class ModifyteacherinfoComponent implements OnInit {
 
-  id: number
+  id: number|any
   teacher: Iteacher
   name: string | undefined
   description: string | undefined
   phone: string | undefined
   image: File | any | string
   constructor(private _teacherserv: TeachersService, private _activatedRoute: ActivatedRoute, private _router: Router, private _http: HttpClient) {
-    this.id = 0;
     this.teacher = { name: "", description: "", phone: "", image: undefined }
     this.image = null;
   }
 
   ngOnInit(): void {
-    this.id = this._activatedRoute.snapshot.params['id']
-    this._teacherserv.getSpecificTeacher(this.id).subscribe(res => this.teacher = res, err => console.log("error"))
+    if(JSON.parse(<string>localStorage.getItem("isLoggedIn"))){
 
+    this.id = this._activatedRoute.snapshot.params['id']
+    if(this.id==localStorage.getItem('teacher_id')){
+    this._teacherserv.getSpecificTeacher(this.id).subscribe(res => this.teacher = res, err => console.log("error"))
+    }
+    else{
+      this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this._router.onSameUrlNavigation = 'reload';
+      this._router.navigate(['./'], { relativeTo: this._activatedRoute });
+      this._router.navigate(['/update-teacher',localStorage.getItem('teacher_id')])
+    
+  }
+
+  }
+    else{
+      this._router.navigate(['/login'])
+    }
 
   }
   OnImageChange(event: any) {
