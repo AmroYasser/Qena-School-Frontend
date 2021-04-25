@@ -23,6 +23,11 @@ export class NavbarComponent implements OnInit {
       ()=>{
         localStorage.setItem("isLoggedIn","false")
         this.is_loggedIn=JSON.parse(<string>localStorage.getItem("isLoggedIn"))
+        localStorage.removeItem('student_id')
+        localStorage.removeItem('admin_id')
+        localStorage.removeItem('teacher_id')
+        localStorage.removeItem('jwt_token')
+
       this.router.navigate(['/login'])
       },
     err=>console.log(true)
