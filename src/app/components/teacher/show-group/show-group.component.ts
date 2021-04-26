@@ -17,9 +17,9 @@ export class ShowGroupComponent implements OnInit {
   post_title: string
   post_content: string
   group_id: number
-  group: any
+  group: any = {}
 
-  constructor(private _group: GroupService, private _router: Router,private route: ActivatedRoute) {
+  constructor(private _group: GroupService, private _router: Router, private route: ActivatedRoute) {
     this.post = {
       title: '', content: '', group_pk: 0
     }
@@ -31,6 +31,8 @@ export class ShowGroupComponent implements OnInit {
   ngOnInit(): void {
     this._group.getGroup(this.group_id).subscribe((data) => {
       this.group = data
+      console.log(this.group);
+
     },
       (err) => console.log(err))
 
