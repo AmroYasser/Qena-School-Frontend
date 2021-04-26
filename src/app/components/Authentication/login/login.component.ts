@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   password: string = ''
   message: string = ''
   user: IUser | any
-  token:any
+  token: any
   //  logged_in:boolean|any=false
   constructor(private http: HttpClient, private router: Router, private loginserv: LoginserviceService) {
 
@@ -31,13 +31,13 @@ export class LoginComponent implements OnInit {
     const formData = new FormData()
     formData.append('email', this.email)
     formData.append('password', this.password)
-    
-    this.http.post('http://127.0.0.1:8000/auth/login', formData, {withCredentials: true}).subscribe((res) => {  
-      const formDate2=new FormData()
-      this.token=res
-      localStorage.setItem('jwt_token',this.token.jwt_token)
-      formDate2.append('jwt_token',this.token.jwt_token)
-      this.http.post('http://127.0.0.1:8000/auth/user',formDate2,{withCredentials:true}).subscribe((res) => {
+
+    this.http.post('http://127.0.0.1:8000/auth/login', formData, { withCredentials: true }).subscribe((res) => {
+      const formDate2 = new FormData()
+      this.token = res
+      localStorage.setItem('jwt_token', this.token.jwt_token)
+      formDate2.append('jwt_token', this.token.jwt_token)
+      this.http.post('http://127.0.0.1:8000/auth/user', formDate2, { withCredentials: true }).subscribe((res) => {
         let data = <IUser>res //data contain user object
         localStorage.setItem("isLoggedIn", "true")
 
@@ -50,53 +50,53 @@ export class LoginComponent implements OnInit {
 
             },
 
-      )
-    }
-    if(data.role=='admin'){
-      this.loginserv.get_admin_user(data.id).subscribe(
-        (res)=>{
-          this.loginserv.current_admin= res
-          Emitter.logged_id.emit(res.id)
-          console.log(Emitter.logged_id.subscribe((res)=>console.log(res,";;;;;;;;;;::::")),">>>>")
-          
-          
-          localStorage.setItem('admin_id',this.loginserv.current_admin.id)
-          if(res.manager==null){
-              this.router.navigate(['/manage-admin'])
-          }
-          else{
-            
-           this.router.navigate(['/manage-teachers'])
-          }
-          
-          
-        },
-        err=>{
-          console.log(err);
-          
+          )
         }
-      )
-    }
-    if(data.role=='teacher'){
-      this.loginserv.get_teacher_user(data.id).subscribe((res)=>{
-        this.loginserv.current_teacher=res
-        localStorage.setItem('teacher_id',this.loginserv.current_teacher.id)
-        this.router.navigate(['/show-teacher',res.id])
+        if (data.role == 'admin') {
+          this.loginserv.get_admin_user(data.id).subscribe(
+            (res) => {
+              this.loginserv.current_admin = res
+              Emitter.logged_id.emit(res.id)
+              console.log(Emitter.logged_id.subscribe((res) => console.log(res, ";;;;;;;;;;::::")), ">>>>")
+
+
+              localStorage.setItem('admin_id', this.loginserv.current_admin.id)
+              if (res.manager == null) {
+                this.router.navigate(['/manage-admin'])
+              }
+              else {
+
+                this.router.navigate(['/admin-home'])
+              }
+
+
+            },
+            err => {
+              console.log(err);
+
+            }
+          )
+        }
+        if (data.role == 'teacher') {
+          this.loginserv.get_teacher_user(data.id).subscribe((res) => {
+            this.loginserv.current_teacher = res
+            localStorage.setItem('teacher_id', this.loginserv.current_teacher.id)
+            this.router.navigate(['/show-teacher', res.id])
+          },
+            err => console.log(err)
+          )
+
+        }
+
       },
-      err=>console.log(err)
-      )
-     
-    }
-  
-  },
-    err=>console.log(err));   
-},
-   (err)=>{
-     this.message=err.error.detail;
-     ;
-    console.log(this.message)
-    }
-         )
+        err => console.log(err));
+    },
+      (err) => {
+        this.message = err.error.detail;
+        ;
+        console.log(this.message)
+      }
+    )
 
 
 

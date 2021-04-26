@@ -12,15 +12,15 @@
         <a class="nav-link font-weight-bold" href="#about-us">عن الموقع</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link font-weight-bold" href="#">تواصل معنا</a>
+        <a class="nav-link font-weight-bold" href="#contact-us">تواصل معنا</a>
       </li>
     </ul>
     <div id="auth" [hidden]="login_status()">
       <a [routerLink]="['/login']" class="btn btn-secondary">تسجيل دخول</a>
-      <a  [routerLink]="['/add-student']" class="btn btn-success ml-2">انشاء حساب</a>
+      <a [routerLink]="['/add-student']" class="btn btn-success ml-2">انشاء حساب</a>
     </div>
-     <div id="auth" [hidden]="!login_status()">
-      <button (click)="logout()"  class="btn btn-secondary"> تسجيل الخروج</button>
+    <div id="auth" [hidden]="!login_status()">
+      <button (click)="logout()" class="btn btn-secondary"> تسجيل الخروج</button>
     </div>
   </div>
 </nav>

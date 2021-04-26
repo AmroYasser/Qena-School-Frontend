@@ -1,28 +1,32 @@
 <div class="container-fluid mb-3">
   <div id="courses" class='container-fluid mt-3'>
     <div class="row">
-      <form method="post" [formGroup]="myForm" (ngSubmit)="search()">
-        <div class="input-group col-lg-6">
-          <input type="search" formControlName="formName" class="form-control rounded" placeholder="ادخل اسم المادة"
-            name="name" id="name" />
-          <select formControlName="formLvl" class="form-control rounded" name="level" id="level">
-            <option *ngFor="let l of levels" [value]="l">{{ l }}</option>
-          </select>
-          <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
-        </div>
-        <form>
-          <div class="row">
-            <div class="card mx-auto col-md-3 col-10 mt-3" *ngFor='let course of courses'>
-              <div class="card-body text-center mx-auto">
-                <div class='cvp'>
-                  <h5 class="card-title font-weight-bold">{{course.name}}</h5>
-                  <h6 class="font-weight-bold">{{course.level}}</h6>
-                  <p class="card-text">أ\{{course.teacher.name}}</p>
-                  <p class="card-text">{{course.schedule}}</p>
-                  <a [routerLink]="['/post-group/', course.id]" class="btn details px-auto">عرض التفاصيل</a><br />
-                  <a [routerLink]="['/reserve']" class="btn cart px-auto">حجز</a>
-                </div>
-              </div>
-            </div>
+      <div class="col-lg-6">
+        <form method="post" [formGroup]="myForm" (ngSubmit)="search()">
+          <div class="input-group ">
+            <input type="search" formControlName="formName" class="form-control rounded" placeholder="ادخل اسم المادة"
+              name="name" id="name" />
+            <select formControlName="formLvl" class="form-control rounded" name="level" id="level">
+              <option *ngFor="let l of levels" [value]="l">{{ l }}</option>
+            </select>
+            <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
           </div>
-
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card mx-auto col-md-3 col-10 mt-3" *ngFor='let course of courses'>
+        <div class="card-body text-center mx-auto">
+          <div class='cvp'>
+            <h5 class="card-title font-weight-bold">{{course.name}}</h5>
+            <h6 class="font-weight-bold">{{course.level}}</h6>
+            <p class="card-text">أ\{{course.teacher.name}}</p>
+            <p class="card-text">{{course.schedule}}</p>
+            <a [routerLink]="['/post-group/', course.id]" class="btn details px-auto">عرض التفاصيل</a><br />
+            <a [routerLink]="['/reserve']" class="btn cart px-auto">حجز</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

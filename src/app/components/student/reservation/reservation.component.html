@@ -2,12 +2,12 @@
   <h3 class="my-5">تأكيد حجز المجموعة</h3>
   <form method="post" action="student-course" class="col-lg-6 mx-auto">
     <div class="form-group">
-      <label for="reservation-code">كود الحجز</label>
-      <input type="text" class="form-control" name="reservation-code" id="reservation-code">
+      <label for="receipt-image">ايصال الدفع</label>
+      <input type="file" class="btn d-block" name="reservation-code" id="receipt-image">
       <small id="emailHelpId" class="form-text text-warning my-3">
-        <h5>برجاء ادخل كود الحجز او تواصل معنا للحصول
-          عليه</h5>
+        <h5>برجاء ارفاق صورة ايصال الدفع</h5>
       </small>
-      <button type="submit" (click)="got_to_student_course()" class="btn btn-info btn-lg">ادخال </button>
+      <button type="submit" (click)="got_to_student_course()" class="btn btn-info btn-lg">تأكيد</button>
     </div>
-    <form>
+  </form>
+</div>
