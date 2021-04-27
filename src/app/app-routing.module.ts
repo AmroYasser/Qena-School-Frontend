@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'courses', component: CoursesComponent },
   { path: 'create-group', component: CreateGroupComponent },
-  { path: 'reserve', component: ReservationComponent },
+  { path: 'reserve/:id', component: ReservationComponent },
   { path: 'student-course', component: StudentcourseComponent },
   { path: 'show-teacher/:id', component: ShowTeacherComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

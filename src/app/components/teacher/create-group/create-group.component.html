@@ -57,12 +57,23 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="next_session_date">ميعاد الحصة القادمة :</label>
-        <input formControlName="formNextSessionDate" type="datetime-local" name="next_session_date" id="next_session_date"
+
+        <label for="next_session_date">تاريخ الحصة القادمة :</label>
+        <input formControlName="formNextSessionDate" type="date" name="next_session_date" id="next_session_date"
+
           class="form-control">
         <div class="alert alert-danger" role="alert"
           *ngIf="myForm.controls['formNextSessionDate'].invalid && myForm.controls['formNextSessionDate'].touched">
           <p *ngIf="myForm.controls['formNextSessionDate'].errors?.required">هذا الحقل مطلوب</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="next_session_time">وقت الحصة القادمة :</label>
+        <input formControlName="formNextSessionTime" type="time" name="next_session_time" id="next_session_time"
+          class="form-control">
+        <div class="alert alert-danger" role="alert"
+          *ngIf="myForm.controls['formNextSessionTime'].invalid && myForm.controls['formNextSessionTime'].touched">
+          <p *ngIf="myForm.controls['formNextSessionTime'].errors?.required">هذا الحقل مطلوب</p>
         </div>
       </div>
       <div class="form-group">

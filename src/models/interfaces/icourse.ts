@@ -6,7 +6,8 @@ export interface ICourse {
   price?: number;
   capacity?: number;
   start_date: Date;
-  next_session_date?: string;
+  next_session_date?: any;
+  next_session_time?: any;
   schedule: string;
   teacher?: any;
   teacher_pk?: number;

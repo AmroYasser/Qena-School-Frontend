@@ -26,7 +26,7 @@ export class AddadminComponent implements OnInit {
       }
     }
   }
-  constructor(private _http: HttpClient, private fb: FormBuilder) {
+  constructor(private _http: HttpClient, private fb: FormBuilder, private router: Router) {
     this.myForm = this.fb.group({
       formName: ['', [Validators.required, Validators.minLength(3)]],
       formEmail: ['', [Validators.required, Validators.email]],
@@ -49,10 +49,11 @@ export class AddadminComponent implements OnInit {
     formData.append('name', this.myForm.value.formName)
     formData.append('ssn', this.myForm.value.formSSN)
     formData.append('manager', <string>localStorage.getItem('admin_id'))
-    formData.append('password', this.myForm.value.password)
-    formData.append('password1', this.myForm.value.password1)
+    formData.append('password', this.myForm.value.formPassword)
+    formData.append('password1', this.myForm.value.formConfirmPassword)
     this._http.post('http://127.0.0.1:8000/auth/register_admin', formData).subscribe((res) => {
       console.log(res)
+      this.router.navigate(['/admin-home'])
     }, err => console.log(err)
     )
   }
