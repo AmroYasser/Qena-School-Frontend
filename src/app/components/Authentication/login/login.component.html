@@ -46,7 +46,7 @@
 						 <a [routerLink]="['/add-student']" class="ml-2"> انشاء حساب</a>
 					</div>
 					<div class="d-flex justify-content-center links">
-						<a href="#">نسيت كلمة المرور</a>
+						<a [routerLink]="['/login']" (click)="forget_password()">نسيت كلمة المرور</a>
 					</div>
 				</div>
 			</div>

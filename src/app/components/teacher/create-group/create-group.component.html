@@ -58,8 +58,8 @@
       </div>
       <div class="form-group">
         <label for="next_session_date">ميعاد الحصة القادمة :</label>
-        <input formControlName="formNextSessionDate" type="text" name="next_session_date" id="next_session_date"
-          placeholder="yyyy-mm-dd  hh:mm" class="form-control">
+        <input formControlName="formNextSessionDate" type="datetime-local" name="next_session_date" id="next_session_date"
+          class="form-control">
         <div class="alert alert-danger" role="alert"
           *ngIf="myForm.controls['formNextSessionDate'].invalid && myForm.controls['formNextSessionDate'].touched">
           <p *ngIf="myForm.controls['formNextSessionDate'].errors?.required">هذا الحقل مطلوب</p>
