@@ -56,11 +56,10 @@ export class LoginComponent implements OnInit {
           this.loginserv.get_admin_user(data.id).subscribe(
             (res) => {
               this.loginserv.current_admin = res
-              Emitter.logged_id.emit(res.id)
-              console.log(Emitter.logged_id.subscribe((res) => console.log(res, ";;;;;;;;;;::::")), ">>>>")
-
-
+                console.log(res);
               localStorage.setItem('admin_id', this.loginserv.current_admin.id)
+              console.log(localStorage.getItem('admin_id'))
+              
               if (res.manager == null) {
                 this.router.navigate(['/manage-admin'])
               }
@@ -99,6 +98,29 @@ export class LoginComponent implements OnInit {
     )
 
 
+
+  }
+
+  forget_password(){
+    const formData=new FormData()
+    formData.append('email',this.email)
+    this.http.post('http://127.0.0.1:8000/auth/check-mail',formData,{withCredentials:true}).subscribe(
+      (res)=>{
+        this.http.post('http://127.0.0.1:8000/auth/get-code',formData).subscribe(
+          res=>this.router.navigate(['/forget-password']),
+          err=>console.log(err)
+        )
+      },
+      (err)=>{
+        console.log("error");
+        
+        this.message=err.error.detail
+        
+        
+        
+      }
+    )
+    console.log(this.email);
 
   }
 
