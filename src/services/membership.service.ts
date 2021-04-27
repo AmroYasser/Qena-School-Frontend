@@ -10,8 +10,12 @@ export class MembershipService {
 
   constructor(private _http: HttpClient) { }
 
+  addNewMembership(membership: FormData): Observable<FormData> {
+    return this._http.post<FormData>('http://127.0.0.1:8000/membership/', membership);
+  }
+
   getAllMemberships(): Observable<Imembership[]> {
-    return this._http.get<Imembership[]>(`http://127.0.0.1:8000/membership/`);
+    return this._http.get<Imembership[]>(`http:127.0.0.1:8000/membership/`);
   }
 
   getSpecificMembership(_id: number): Observable<Imembership> {

@@ -1,12 +1,12 @@
 <div class="container-fluid mb-3">
-  <h2 class="text-center">ادارة المسؤليين</h2>
+  <h2 class="text-center mt-5">ادارة المسؤليين</h2>
 
   <table class="table table-bordered table-hover text-center mt-5">
     <thead>
       <tr>
         <th>الاسم</th>
         <th>الرقم القومي</th>
-        
+
       </tr>
     </thead>
     <tbody>
@@ -17,5 +17,9 @@
       </tr>
     </tbody>
   </table>
-  <a [routerLink]="['/add-admin']" class="btn btn-success">اضف مسؤل جديد</a>
+  <div class="clearfix">
+    <a [routerLink]="['/add-admin']" class="btn btn-success float-left">اضف مسؤل جديد</a>
+    <a [routerLink]="['/admin-home']" class="btn btn-info float-right">صغحة ادارة الموقع</a>
+  </div>
+
 </div>

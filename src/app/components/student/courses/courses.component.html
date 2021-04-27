@@ -20,10 +20,11 @@
           <div class='cvp'>
             <h5 class="card-title font-weight-bold">{{course.name}}</h5>
             <h6 class="font-weight-bold">{{course.level}}</h6>
-            <p class="card-text">أ\{{course.teacher.name}}</p>
+            <p class="card-text">أ/{{course.teacher.name}}</p>
             <p class="card-text">{{course.schedule}}</p>
+            <p class="card-text">السعر : {{course.price}} ج</p>
             <a [routerLink]="['/post-group/', course.id]" class="btn details px-auto">عرض التفاصيل</a><br />
-            <a [routerLink]="['/reserve']" class="btn cart px-auto">حجز</a>
+            <a [routerLink]="['/reserve',course.id]" class="btn btn-success cart px-auto">حجز</a>
           </div>
         </div>
       </div>

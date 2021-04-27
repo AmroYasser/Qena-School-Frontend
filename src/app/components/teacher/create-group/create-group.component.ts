@@ -21,7 +21,7 @@ export class CreateGroupComponent implements OnInit {
   constructor(private _apiCourseService: CoursesService, private _apiTeacherService: TeachersService, private _router: Router, private fb: FormBuilder) {
     this.levels = ['اول ابتدائي', 'ثاني ابتدائي', 'ثالث ابتدائي', 'رابع ابتدائي', 'خامس ابتدائي', 'سادس ابتدائي', 'اول اعدادي', 'ثاني اعدادي', 'ثالث اعدادي', 'اول ثانوي', 'ثاني ثانوي', 'ثالث ثانوي', 'اخري']
     this.group = {
-      name: "", level: "", session_num: 0, price: 0, capacity: 0, start_date: new Date(), next_session_date: '2019-09-25 06:00', schedule: "", teacher: null, teacher_pk: NaN
+      name: "", level: "", session_num: 0, price: 0, capacity: 0, start_date: new Date(), next_session_date: new Date(), next_session_time: null, schedule: "", teacher: null, teacher_pk: NaN
     };
     this.myForm = this.fb.group({
       formName: ['', [Validators.required, Validators.minLength(3)]],
@@ -31,6 +31,7 @@ export class CreateGroupComponent implements OnInit {
       formCapacity: ['', [Validators.required, Validators.min(1)]],
       formStartDate: ['', Validators.required],
       formNextSessionDate: ['', Validators.required],
+      formNextSessionTime: ['', Validators.required],
       formSchedule: ['', [Validators.required, Validators.maxLength(50)]],
       formTeacher: [''],
     })
@@ -58,6 +59,7 @@ export class CreateGroupComponent implements OnInit {
     this.group.capacity = this.myForm.value.formCapacity;
     this.group.start_date = this.myForm.value.formStartDate;
     this.group.next_session_date = this.myForm.value.formNextSessionDate;
+    this.group.next_session_time = this.myForm.value.formNextSessionTime;
     this.group.schedule = this.myForm.value.formSchedule;
     if (!this.isTeacher) {
       this.group.teacher_pk = Number(this.myForm.value.formTeacher);

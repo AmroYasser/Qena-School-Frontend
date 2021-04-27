@@ -24,7 +24,7 @@
         <div class="float-left w-100">
           <a class="btn btn-primary m-1" *ngFor="let mem of memberships"
             [routerLink]="['/post-group/', mem.group.id]">{{mem.group.name}}
-            - {{mem.group.id}}</a>
+            - {{mem.group.level}}</a>
         </div>
       </div>
       <a class=" btn btn-primary m-1 float-right" [routerLink]="['/update-student', student.id]">تعديل
