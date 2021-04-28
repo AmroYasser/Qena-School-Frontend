@@ -49,7 +49,6 @@ const routes: Routes = [
   { path: 'admin-home', component: AdminHomeComponent },
   { path: 'logout', component: LoginComponent },
   { path: 'manage-admin', component: ManageadminComponent },
-  { path: 'admin-home', component: AdminHomeComponent },
   { path: 'add-admin', component: AddadminComponent },
   { path: 'forget-password', component: ForgetpasswordComponent },
   { path: 'reset-password', component: ResetpasswordComponent },

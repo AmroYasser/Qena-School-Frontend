@@ -20,9 +20,10 @@ export class ShowTeacherComponent implements OnInit {
 
     if(JSON.parse(<string>localStorage.getItem("isLoggedIn"))){
       console.log(localStorage.getItem('teacher_id'));
+      console.log(JSON.parse(<string>localStorage.getItem("is_admin")),"role");
       
     this.id = this.activedRoute.snapshot.params["id"];
-  if(this.id==localStorage.getItem('teacher_id')){
+  if(this.id==localStorage.getItem('teacher_id') ||JSON.parse(<string>localStorage.getItem("is_admin"))==true){
     console.log("yes");
     
     this._apiTeacherService.getSpecificTeacher(this.id).subscribe((res) => {
