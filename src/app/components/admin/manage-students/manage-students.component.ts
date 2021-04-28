@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Imembership } from 'src/models/interfaces/imembership';
@@ -15,7 +16,7 @@ export class ManageStudentsComponent implements OnInit {
   memberships: any
   membership: any
 
-  constructor(private _apiMembershipService: MembershipService, private _router: Router, private route: ActivatedRoute) {
+  constructor(private _apiMembershipService: MembershipService, private _router: Router, private route: ActivatedRoute,private http:HttpClient) {
   }
 
   ngOnInit(): void {
@@ -44,7 +45,20 @@ export class ManageStudentsComponent implements OnInit {
       this.membership.status = 'active'
       this.membership.student_pk = this.membership.student.id
       this.membership.group_pk = this.membership.group.id
+      
+      
+
       this._apiMembershipService.updateMembership(this.membership, _id).subscribe((res) => {
+        
+        //send mail after activation done
+      const formData=new FormData()
+      formData.append('email',this.membership.student.user.email)
+      formData.append('name',this.membership.student.name)
+      formData.append('course',this.membership.group.name)
+      formData.append('teacher',this.membership.group.teacher.name)
+      this.http.post('http://127.0.0.1:8000/auth/confirm-booking',formData).subscribe(res=>console.log(res),err=>console.log(err)
+      )
+        
         this.reload()
       })
     }, (err) => { console.log(err) })
