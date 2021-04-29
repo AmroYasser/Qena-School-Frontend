@@ -96,4 +96,20 @@ export class ShowGroupComponent implements OnInit {
     
   }
 
+// deletepost(post_id:number){
+//   console.log(post_id);
+    
+//     this.http.delete(`http://127.0.0.1:8000/post/${post_id}/`).subscribe(
+//       (res)=>{console.log("post deleted");
+//       this._router.navigateByUrl(`/tgroup/${this.group_id}`);
+//       this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+//       this._router.onSameUrlNavigation = 'reload';
+//       this._router.navigate(['./'], { relativeTo: this.route });
+//     },
+//       err=>console.log(err)
+      
+      
+//     )
+//   }
+
 }
