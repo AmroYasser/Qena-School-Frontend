@@ -1,0 +1,33 @@
+<div class="container-fluid mb-3">
+  <h2 class="text-center">ادارة مجموعات اليوم</h2>
+
+  <table class="table table-bordered table-hover text-center mt-5">
+    <thead>
+      <tr>
+        <th>الاسم</th>
+        <th>اسم المدرس</th>
+        <th>عدد الحصص المتبقية</th>
+        <th>توقيت الحصة</th>
+        <th>رابط الدرس</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let g of groups">
+        <td>{{g.name}}</td>
+        <td>{{g.teacher.name}}</td>
+        <td>{{g.session_num}}</td>
+        <td>{{g.next_session_time}}</td>
+        <td><input type="text" [(ngModel)]="url" name="link" id="link"></td>
+        <td><input class="btn btn-primary" (click)="sendMails(g.id)" type="submit" name="link" id="link" value="ارسال">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="clearfix">
+    <a [routerLink]="['/create-group']" class="btn btn-success float-left">اضف مجموعة جديدة</a>
+    <a [routerLink]="['/admin-home']" class="btn btn-info float-right">صغحة ادارة الموقع</a>
+  </div>
+
+
+</div>
