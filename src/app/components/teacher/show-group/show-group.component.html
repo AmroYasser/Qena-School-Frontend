@@ -7,8 +7,29 @@
         <h5 class="card-title">أ\{{group.teacher.name}}</h5>
         <p class="card-text">المواعيد: {{group.schedule}}</p>
         <p class="card-text"> موعد البدء: {{group.start_date}}</p>
+      </div> 
+
+      
+      <div>
+      <h4>تعديل موعد المجموعة</h4>
+      <form [formGroup]="myform">
+      <div class="form-group">
+        <label for=""></label>
+        <input type="date" formControlName="formNextSessionDate"
+          class="form-control" name="date" id="" aria-describedby="helpId" placeholder="">
+        <small id="helpId" class="form-text text-muted">ادخل التاريخ</small>
+      </div>
+       <div class="form-group">
+        <label for=""></label>
+        <input type="time" formControlName="formNextSessionTime"
+          class="form-control" name="time" id="" aria-describedby="helpId" placeholder="">
+        <small id="helpId" class="form-text text-muted" >ادخل الوقت </small>
+      </div>
+          <button (click)="update_timedate()" type="button" class="btn btn-outline-info">تاكيد التغيير</button>
+          </form>
       </div>
     </div>
+    
     <div class="col-lg-8">
       <div class="ml-3 mb-5">
         <h4>أضف منشور جديد للطلاب</h4>
