@@ -20,9 +20,9 @@ export class ShowGroupComponent implements OnInit {
   post_content: string
   group_id: number
   group: any = {}
-  myform:FormGroup
-  constructor(private _group: GroupService, private _router: Router, private route: ActivatedRoute, private fb:FormBuilder,
-    private http:HttpClient) {
+  myform: FormGroup
+  constructor(private _group: GroupService, private _router: Router, private route: ActivatedRoute, private fb: FormBuilder,
+    private http: HttpClient) {
     this.post = {
       title: '', content: '', group_pk: 0
     }
@@ -30,7 +30,7 @@ export class ShowGroupComponent implements OnInit {
     this.post_title = ''
     this.group_id = route.snapshot.params.id
 
-    this.myform=this.fb.group({
+    this.myform = this.fb.group({
       formNextSessionDate: ['', Validators.required],
       formNextSessionTime: ['', Validators.required],
     })
@@ -64,16 +64,16 @@ export class ShowGroupComponent implements OnInit {
 
   }
 
-  update_timedate(){
-    console.log(this.group.id,"hgagy");
-    
+  update_timedate() {
+    console.log(this.group.id, "hgagy");
+
     // http://127.0.0.1:8000/course-group/
-    const formDate=new FormData()
-    formDate.append('next_session_date',this.myform.value.formNextSessionDate)
-    formDate.append('next_session_time',this.myform.value.formNextSessionTime)
-    this.http.patch(`http://127.0.0.1:8000/course-group/${this.group.id}/`,formDate).subscribe(
-      (res)=>{
-        
+    const formDate = new FormData()
+    formDate.append('next_session_date', this.myform.value.formNextSessionDate)
+    formDate.append('next_session_time', this.myform.value.formNextSessionTime)
+    this.http.patch(`http://127.0.0.1:8000/course-group/${this.group.id}/`, formDate).subscribe(
+      (res) => {
+
         this.post = {
           title: "تغيير موعد الحصة القادمة", content: ` تم تغير موعد الحصة القادمة الي ${this.myform.value.formNextSessionDate}
           الساعة ${this.myform.value.formNextSessionTime}`
@@ -85,15 +85,24 @@ export class ShowGroupComponent implements OnInit {
           this._router.onSameUrlNavigation = 'reload';
           this._router.navigate(['./'], { relativeTo: this.route });
         }, (err) => console.log(err))
-        
+
       },
-      (err)=>{
+      (err) => {
         console.log(err);
-        
+
       }
     )
 
-    
+
+  }
+
+  delete(_id: any) {
+    this.http.delete(`http://127.0.0.1:8000/post/${_id}/`).subscribe((res) => {
+      this._router.navigateByUrl(`/tgroup/${this.group_id}`);
+      this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this._router.onSameUrlNavigation = 'reload';
+      this._router.navigate(['./'], { relativeTo: this.route });
+    }, (err)=>console.log(err))
   }
 
 // deletepost(post_id:number){

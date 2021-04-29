@@ -8,7 +8,7 @@
       <label for="receipt-image">ايصال الدفع</label>
       <input type="file" (change)="onFileselected($event)" class="btn d-block" name="reservation-code"
         id="receipt-image">
-      <button type="submit" class="btn btn-info btn-lg mt-3">ارسال</button>
+      <button type="submit" [disabled]="image==null" class="btn btn-info btn-lg mt-3">ارسال</button>
     </div>
   </form>
 </div>

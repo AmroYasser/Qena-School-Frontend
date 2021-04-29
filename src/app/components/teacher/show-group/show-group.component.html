@@ -47,8 +47,9 @@
         <div class="mb-3 ml-3">
           <div class="media" *ngFor="let post of posts">
             <div class="media-body">
-              <h4 class="media-heading bg-light">{{post.title}} 
-              </h4>
+
+              <h4 class="media-heading bg-light">{{post.title}}  <i (click)="delete(post.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i></h4>
+
               <p class="text-left">
                 {{post.content}}
               </p>

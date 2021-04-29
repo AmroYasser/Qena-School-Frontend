@@ -13,30 +13,29 @@ import { StudentsService } from 'src/services/students.service';
 })
 export class ModifyinfoComponent implements OnInit {
   student: IStudent
-  id: number|any
+  id: number | any
   levels: string[]
   image: File | undefined | any
-  constructor(private _studentserv: StudentsService, private _route: ActivatedRoute, private _http: HttpClient, private _router: Router) 
-  {
+  constructor(private _studentserv: StudentsService, private _route: ActivatedRoute, private _http: HttpClient, private _router: Router) {
     this.student = { name: "", level: "", phone: "" };
-    
+
     this.image = null;
     this.levels = ['اول ابتدائي', 'ثاني ابتدائي', 'ثالث ابتدائي', 'رابع ابتدائي', 'خامس ابتدائي', 'سادس ابتدائي', 'اول اعدادي', 'ثاني اعدادي', 'ثالث اعدادي', 'اول ثانوي', 'ثاني ثانوي', 'ثالث ثانوي', 'اخري']
-    if(JSON.parse(<string>localStorage.getItem("isLoggedIn"))){
+    if (JSON.parse(<string>localStorage.getItem("isLoggedIn"))) {
       this.id = _route.snapshot.params.id
-  }
-  else{
-    _router.navigate(['/home'])
-  }
-      
+    }
+    else {
+      _router.navigate(['/home'])
+    }
+
   }
 
   ngOnInit(): void {
-    if(this.id==localStorage.getItem('student_id')){
-    this.id = this._route.snapshot.params.id
-    this._studentserv.getSpecificStudent(this.id).subscribe(res => this.student = res, err => console.log(err))
+    if (this.id == localStorage.getItem('student_id')) {
+      this.id = this._route.snapshot.params.id
+      this._studentserv.getSpecificStudent(this.id).subscribe(res => this.student = res, err => console.log(err))
     }
-    else{
+    else {
       this._router.navigate(['./'])
     }
   }
@@ -52,9 +51,7 @@ export class ModifyinfoComponent implements OnInit {
   }
 
   save() {
-    console.log(this.student);
-
-    let formData = new FormData()
+    const formData = new FormData()
     formData.append('name', this.student.name)
     formData.append('level', this.student.level)
     formData.append('phone', this.student.phone)
