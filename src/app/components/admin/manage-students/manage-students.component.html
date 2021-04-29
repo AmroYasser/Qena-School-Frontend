@@ -29,28 +29,23 @@
   <h2 class="text-center my-5">ادارة اشتراكات الطلاب</h2>
 
   <div class="row d-flex justify-content-center">
-    <div class="card col-lg-3 m-3" *ngFor="let m of memberships">
-      <div [hidden]="m.status=='active'">
-        <img class="card-img-top" src="{{m.image}}" onerror="this.src='assets/img_avatar1.png';" alt="Card image">
-        <div class="card-body">
-          <h5 class="card-title">{{m.student.name}}</h5>
-          <h5 class="card-title">{{m.student.phone}}</h5>
-          <h5 class="card-title">{{m.group.name}}</h5>
-          <h5 class="card-title">أ / {{m.group.teacher.name}}</h5>
-          <div class="d-flex justify-content-between">
-            <button (click)="activate(m.id)" [hidden]="m.status=='active'" class="btn btn-secondary">تأكيد</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-              عرض صورة الايصال
-            </button>
-            <i (click)="deleteMembership(m.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i>
-          </div>
-          <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <img class="card-img-top" src="{{m.image}}" onerror="this.src='assets/img_avatar1.png';"
-                    alt="Card image">
-                </div>
+    <div [hidden]="m.status==showStatus" class="card col-lg-3 m-3" *ngFor="let m of memberships">
+      <img class="card-img-top" data-toggle="modal" data-target="#myModal" src="{{m.image}}"
+        onerror="this.src='assets/img_avatar1.png';" alt="Card image">
+      <div class="card-body">
+        <h5 class="card-title">{{m.student.name}}</h5>
+        <h5 class="card-title">{{m.student.phone}}</h5>
+        <h5 class="card-title">{{m.group.name}}</h5>
+        <h5 class="card-title">أ / {{m.group.teacher.name}}</h5>
+        <div class="d-flex justify-content-between">
+          <button (click)="activate(m.id)" [hidden]="m.status=='active'" class="btn btn-secondary">تأكيد</button>
+          <i (click)="deleteMembership(m.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i>
+        </div>
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <img src="{{ m.image }}" onerror="this.src='assets/img_avatar1.png';" alt="image">
               </div>
             </div>
           </div>
@@ -59,7 +54,7 @@
     </div>
   </div>
   <div class="clearfix">
-    <a [routerLink]="['/add-teacher']" class="btn btn-success float-left">اضف مدرس جديد</a>
-    <a [routerLink]="['/admin-home']" class="btn btn-info float-right">صغحة ادارة الموقع</a>
+    <button type="submit" (click)="changeStatus()" class="btn btn-success float-left">{{btnText}}</button>
+    <a [routerLink]="['/admin-home']" class="btn btn-info float-right">صفحة ادارة الموقع</a>
   </div>
 </div>
