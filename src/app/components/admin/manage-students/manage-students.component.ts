@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Imembership } from 'src/models/interfaces/imembership';
 import { GroupService } from 'src/services/group.service';
@@ -14,15 +16,26 @@ import { TeachersService } from 'src/services/teachers.service';
 export class ManageStudentsComponent implements OnInit {
   memberships: any
   membership: any
+  group: any
+  newCapacity: number | any
+  showStatus: string = "binding"
+  btnText = "اظهار الاشتراكات الجديدة"
 
-  constructor(private _apiMembershipService: MembershipService, private _router: Router, private route: ActivatedRoute) {
+  constructor(private _apiMembershipService: MembershipService, private _router: Router, private route: ActivatedRoute, private _http: HttpClient) {
   }
 
   ngOnInit(): void {
-    this._apiMembershipService.getAllMemberships().subscribe((data) => {
+    // get-stated-memberships/binding
+    this._http.get(`http://127.0.0.1:8000/membership`).subscribe((data) => {
+      console.log(data);
+
       this.memberships = data
+
     }, (err) => console.log(err))
 
+  }
+
+  ngAfterViewInit() {
   }
 
   reload() {
@@ -38,15 +51,30 @@ export class ManageStudentsComponent implements OnInit {
     }, (err) => { console.log(err) })
   }
 
+  changeStatus() {
+    if (this.showStatus == "binding") {
+      this.showStatus = "active";
+      this.btnText = "اظهار الاشتراكات الجديدة"
+    }
+    else {
+      this.showStatus = "binding";
+      this.btnText = "اظهار الاشتراكات المفعلة"
+    }
+  }
+
   activate(_id: number) {
     this._apiMembershipService.getSpecificMembership(_id).subscribe((res) => {
       this.membership = res
-      this.membership.status = 'active'
-      this.membership.student_pk = this.membership.student.id
-      this.membership.group_pk = this.membership.group.id
-      this._apiMembershipService.updateMembership(this.membership, _id).subscribe((res) => {
-        this.reload()
-      })
+      console.log(this.membership.group.capacity - 1)
+      // const formData = new FormData()
+      // formData.append('status', "active")
+      // this._http.patch(`http://127.0.0.1:8000/membership/${this.membership.id}/`, formData).subscribe(res => this.reload(),
+      //   err => console.log(err))
+      const formData2 = new FormData()
+      this.newCapacity = <number>this.membership.group.capacity - 1
+      formData2.append('capacity', this.newCapacity)
+      this._http.patch(`http://127.0.0.1:8000/course-group/${this.membership.group.id}/`, formData2).subscribe(res => this.reload(),
+        err => console.log(err))
     }, (err) => { console.log(err) })
   }
 
