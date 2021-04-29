@@ -1,6 +1,8 @@
+import { Time } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ipost } from 'src/models/interfaces/ipost';
 import { CoursesService } from 'src/services/courses.service';
@@ -18,14 +20,21 @@ export class ShowGroupComponent implements OnInit {
   post_content: string
   group_id: number
   group: any = {}
-
-  constructor(private _group: GroupService, private _router: Router, private route: ActivatedRoute) {
+  myform:FormGroup
+  constructor(private _group: GroupService, private _router: Router, private route: ActivatedRoute, private fb:FormBuilder,
+    private http:HttpClient) {
     this.post = {
       title: '', content: '', group_pk: 0
     }
     this.post_content = ''
     this.post_title = ''
     this.group_id = route.snapshot.params.id
+
+    this.myform=this.fb.group({
+      formNextSessionDate: ['', Validators.required],
+      formNextSessionTime: ['', Validators.required],
+    })
+
   }
 
   ngOnInit(): void {
@@ -53,6 +62,38 @@ export class ShowGroupComponent implements OnInit {
       this._router.navigate(['./'], { relativeTo: this.route });
     }, (err) => console.log(err))
 
+  }
+
+  update_timedate(){
+    console.log(this.group.id,"hgagy");
+    
+    // http://127.0.0.1:8000/course-group/
+    const formDate=new FormData()
+    formDate.append('next_session_date',this.myform.value.formNextSessionDate)
+    formDate.append('next_session_time',this.myform.value.formNextSessionTime)
+    this.http.patch(`http://127.0.0.1:8000/course-group/${this.group.id}/`,formDate).subscribe(
+      (res)=>{
+        
+        this.post = {
+          title: "تغيير موعد الحصة القادمة", content: ` تم تغير موعد الحصة القادمة الي ${this.myform.value.formNextSessionDate}
+          الساعة ${this.myform.value.formNextSessionTime}`
+          , group_pk: this.group_id
+        }
+        this._group.addPost(this.post).subscribe((data) => {
+          this._router.navigateByUrl(`/tgroup/${this.group_id}`);
+          this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this._router.onSameUrlNavigation = 'reload';
+          this._router.navigate(['./'], { relativeTo: this.route });
+        }, (err) => console.log(err))
+        
+      },
+      (err)=>{
+        console.log(err);
+        
+      }
+    )
+
+    
   }
 
 }
