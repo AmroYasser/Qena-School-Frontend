@@ -18,8 +18,8 @@
         <td>{{g.teacher.name}}</td>
         <td>{{g.session_num}}</td>
         <td>{{g.next_session_time}}</td>
-        <td><input type="text" [(ngModel)]="url" name="link" id="link"></td>
-        <td><input class="btn btn-primary" (click)="sendMails(g.id)" type="submit" name="link" id="link" value="ارسال">
+        <td><input type="text" class="form-control" #val name="link" id="link"></td>
+        <td><input class="btn btn-primary" [disabled]="g.session_num==0" (click)="sendMails(g.id,val.value)" type="submit" name="link" id="link" value="ارسال">
         </td>
       </tr>
     </tbody>
