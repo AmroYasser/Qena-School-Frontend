@@ -18,10 +18,7 @@ public current_admin:IAdmin|any
 
   constructor(private http:HttpClient) {
    }
-  get_user():Observable<IUser>{
-     return this.http.get<IUser>('http://127.0.0.1:8000/auth/user')
 
-   }
 
    get_student_user(id:number):Observable<IStudent>{
      return this.http.get<IStudent>(`http://127.0.0.1:8000/get-user-student/${id}`)

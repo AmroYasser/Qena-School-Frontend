@@ -43,6 +43,8 @@ export class AddadminComponent implements OnInit {
 
   save() {
     const formData = new FormData()
+    console.log(localStorage.getItem('admin_id'));
+    
     formData.append('email', this.myForm.value.formEmail)
     formData.append('name', this.myForm.value.formName)
     formData.append('ssn', this.myForm.value.formSSN)

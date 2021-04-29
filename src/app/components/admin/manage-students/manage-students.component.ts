@@ -21,6 +21,7 @@ export class ManageStudentsComponent implements OnInit {
   showStatus: string = "binding"
   btnText = "اظهار الاشتراكات الجديدة"
 
+
   constructor(private _apiMembershipService: MembershipService, private _router: Router, private route: ActivatedRoute, private _http: HttpClient) {
   }
 
@@ -65,6 +66,7 @@ export class ManageStudentsComponent implements OnInit {
   activate(_id: number) {
     this._apiMembershipService.getSpecificMembership(_id).subscribe((res) => {
       this.membership = res
+
       console.log(this.membership.group.capacity - 1)
       // const formData = new FormData()
       // formData.append('status', "active")
@@ -75,6 +77,20 @@ export class ManageStudentsComponent implements OnInit {
       formData2.append('capacity', this.newCapacity)
       this._http.patch(`http://127.0.0.1:8000/course-group/${this.membership.group.id}/`, formData2).subscribe(res => this.reload(),
         err => console.log(err))
+
+      this._apiMembershipService.updateMembership(this.membership, _id).subscribe((res) => {
+        
+        //send mail after activation done
+      const formData=new FormData()
+      formData.append('email',this.membership.student.user.email)
+      formData.append('name',this.membership.student.name)
+      formData.append('course',this.membership.group.name)
+      formData.append('teacher',this.membership.group.teacher.name)
+      this._http.post('http://127.0.0.1:8000/auth/confirm-booking',formData).subscribe(res=>console.log(res),err=>console.log(err)
+      )
+        
+        this.reload()
+      })
     }, (err) => { console.log(err) })
   }
 

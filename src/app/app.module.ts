@@ -30,6 +30,8 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { LogoutComponent } from './components/Authentication/logout/logout.component';
 import { AddadminComponent } from './components/admin/superuser/addadmin/addadmin.component';
 import { ManageadminComponent } from './components/admin/superuser/manageadmin/manageadmin.component';
+import { ForgetpasswordComponent } from './components/Authentication/forgetpassword/forgetpassword.component';
+import { ResetpasswordComponent } from './components/Authentication/resetpassword/resetpassword.component';
 
 @NgModule({
   imports: [
@@ -69,6 +71,8 @@ import { ManageadminComponent } from './components/admin/superuser/manageadmin/m
     LogoutComponent,
     AddadminComponent,
     ManageadminComponent,
+    ForgetpasswordComponent,
+    ResetpasswordComponent,
   ],
 
   providers: [],

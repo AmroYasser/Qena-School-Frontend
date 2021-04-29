@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ICourse } from 'src/models/interfaces/icourse';
 import { CoursesService } from 'src/services/courses.service';
 
@@ -13,7 +14,7 @@ export class CoursesComponent implements OnInit {
   courses: ICourse[] = []
   levels: string[] = []
   myForm: FormGroup;
-  constructor(private _courses: CoursesService, private fb: FormBuilder, private _http: HttpClient) {
+  constructor(private _courses: CoursesService, private fb: FormBuilder, private _http: HttpClient,private router:Router) {
     this.levels = ['اول ابتدائي', 'ثاني ابتدائي', 'ثالث ابتدائي', 'رابع ابتدائي', 'خامس ابتدائي', 'سادس ابتدائي', 'اول اعدادي', 'ثاني اعدادي', 'ثالث اعدادي', 'اول ثانوي', 'ثاني ثانوي', 'ثالث ثانوي', 'اخري']
     this.myForm = this.fb.group({
       formName: [''],
@@ -22,6 +23,15 @@ export class CoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    
+    if(localStorage.getItem('is_admin')=='true'){
+      this.router.navigate(['/admin-home'])
+    }
+    if(localStorage.getItem('teacher_id')!=null){
+      this.router.navigate(['/show-teacher',localStorage.getItem('teacher_id')])
+    }
+    
     this._courses.getAllCourses().subscribe((res) => {
       this.courses = res
     },

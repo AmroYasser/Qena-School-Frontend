@@ -23,7 +23,6 @@
             <p class="card-text">أ/{{course.teacher.name}}</p>
             <p class="card-text">{{course.schedule}}</p>
             <p class="card-text">السعر : {{course.price}} ج</p>
-            <a [routerLink]="['/post-group/', course.id]" class="btn details px-auto">عرض التفاصيل</a><br />
             <a [routerLink]="['/reserve',course.id]" class="btn btn-success cart px-auto">حجز</a>
           </div>
         </div>

@@ -22,6 +22,8 @@ import { LoginComponent } from './components/Authentication/login/login.componen
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { ManageadminComponent } from './components/admin/superuser/manageadmin/manageadmin.component';
 import { AddadminComponent } from './components/admin/superuser/addadmin/addadmin.component';
+import { ForgetpasswordComponent } from './components/Authentication/forgetpassword/forgetpassword.component';
+import { ResetpasswordComponent } from './components/Authentication/resetpassword/resetpassword.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -47,8 +49,11 @@ const routes: Routes = [
   { path: 'admin-home', component: AdminHomeComponent },
   { path: 'logout', component: LoginComponent },
   { path: 'manage-admin', component: ManageadminComponent },
-  { path: 'admin-home', component: AdminHomeComponent },
   { path: 'add-admin', component: AddadminComponent },
+  { path: 'forget-password', component: ForgetpasswordComponent },
+  { path: 'reset-password', component: ResetpasswordComponent },
+
+
 
   { path: '**', component: HomePageComponent }
 ];
