@@ -1,23 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 my-5">
-      <a class="btn btn-primary" [routerLink]="['/manage-teachers/']">ادارة المدرسين</a>
+      <a class="btn btn-info" [routerLink]="['/manage-teachers/']">ادارة المدرسين</a>
     </div>
     <div class="col-md-6 my-5">
-      <a class="btn btn-primary" [routerLink]="['/manage-groups-data/']">ادارة المجموعات</a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 my-5">
-      <a class="btn btn-primary" [routerLink]="['/manage-student/']">ادارة الاشتراكات</a>
-    </div>
-    <div class="col-md-6 my-5">
-      <a class="btn btn-primary" [routerLink]="['/manage-students/']">ادارة الطلاب</a>
+      <a class="btn btn-info" [routerLink]="['/manage-groups-data/']">ادارة المجموعات</a>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6 my-5">
-      <a *ngIf="is_super==true" class="btn btn-primary" [routerLink]="['/manage-admin']">ادارة اعضاء فريق الادارة</a>
+      <a class="btn btn-info" [routerLink]="['/manage-student/']">ادارة الاشتراكات</a>
+    </div>
+    <div class="col-md-6 my-5">
+      <a class="btn btn-info" [routerLink]="['/manage-students/']">ادارة الطلاب</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 my-5">
+      <a *ngIf="is_super==true" class="btn btn-info" [routerLink]="['/manage-admin']">ادارة اعضاء فريق الادارة</a>
+    </div>
+    <div class="col-md-6 my-5">
+      <a class="btn btn-info" [routerLink]="['/today-groups']">ادارة مجموعات اليوم</a>
     </div>
   </div>
 </div>

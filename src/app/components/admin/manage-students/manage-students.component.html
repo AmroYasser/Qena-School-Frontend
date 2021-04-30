@@ -1,37 +1,9 @@
-<!-- <div class="container-fluid mb-3">
-  <h2 class="text-center mt-5">ادارة اشتراكات الطلاب</h2>
-
-  <table class="table table-bordered table-hover text-center mt-5">
-    <thead>
-      <tr>
-        <th>اسم الطالب</th>
-        <th>اسم المدرس</th>
-        <th>المجموعة</th>
-        <th>الصف</th>
-        <th>رقم الهاتف</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let mem of memberships">
-        <td>{{mem.student.name}}</td>
-        <td>{{mem.group.teacher.name}}</td>
-        <td>{{mem.group.name}}</td>
-        <td>{{mem.group.level}}</td>
-        <td>{{mem.student.phone}}</td>
-        <td><a (click)="activate(mem.id)" [hidden]="mem.status=='active'" class="btn btn-secondary">تأكيد</a></td>
-        <td><i (click)="deleteMembership(mem.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i></td>
-      </tr>
-    </tbody>
-  </table>
-
-</div> -->
 <div class="container-fluid mb-3">
   <h2 class="text-center my-5">ادارة اشتراكات الطلاب</h2>
 
   <div class="row d-flex justify-content-center">
-    <div [hidden]="m.status==showStatus" class="card col-lg-3 m-3" *ngFor="let m of memberships">
-      <img class="card-img-top" data-toggle="modal" data-target="#myModal" src="{{m.image}}"
-        onerror="this.src='assets/img_avatar1.png';" alt="Card image">
+    <div class="card col-lg-3 m-3" [hidden]="m.status==showStatus" *ngFor="let m of memberships;">
+      <img class="card-img-top" src="{{ m.image }}" onerror="this.src='assets/img_avatar1.png';" alt="Card image">
       <div class="card-body">
         <h5 class="card-title">{{m.student.name}}</h5>
         <h5 class="card-title">{{m.student.phone}}</h5>
@@ -40,15 +12,6 @@
         <div class="d-flex justify-content-between">
           <button (click)="activate(m.id)" [hidden]="m.status=='active'" class="btn btn-secondary">تأكيد</button>
           <i (click)="deleteMembership(m.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i>
-        </div>
-        <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-body">
-                <img src="{{ m.image }}" onerror="this.src='assets/img_avatar1.png';" alt="image">
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
