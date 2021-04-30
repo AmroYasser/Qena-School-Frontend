@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="card mx-auto col-md-3 col-10 mt-3" *ngFor='let course of courses'>
+      <div class="card mx-auto col-md-3 col-10 mt-3" [hidden]="course.capacity==0" *ngFor='let course of courses'>
         <div class="card-body text-center mx-auto">
           <div class='cvp'>
             <h5 class="card-title font-weight-bold">{{course.name}}</h5>
