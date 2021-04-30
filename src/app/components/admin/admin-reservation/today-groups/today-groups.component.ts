@@ -14,6 +14,7 @@ export class TodayGroupsComponent implements OnInit {
   group_id: number | any
   group: ICourse | any
   url: string | any
+
   constructor(private _http: HttpClient, private _groupService: GroupService,private _router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -24,7 +25,11 @@ export class TodayGroupsComponent implements OnInit {
         console.log(err);
       })
   }
-  sendMails(gid: any,url:string) {
+  sendMails(gid: any) {
+    this._http.get(`http://127.0.0.1:8000/get-mems/${gid}`).subscribe((res)=>{
+      console.log(res)
+    }, (err)=> console.log(err))
+
     this._groupService.getGroup(gid).subscribe((res) => {
       let group=res
       console.log("group", gid);

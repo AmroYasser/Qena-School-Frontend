@@ -22,12 +22,17 @@
         <h3>المجموعات</h3>
         <hr class="w-50 float-left">
         <div class="float-left w-100">
-          <a class="btn btn-primary m-1" *ngFor="let mem of memberships"
-            [routerLink]="['/post-group/', mem.group.id]" [hidden]="mem.status=='binding'">{{mem.group.name}}
+          <a class="btn btn-success m-1" *ngFor="let mem of memberships" [routerLink]="['/post-group/', mem.group.id]"
+            [hidden]="mem.status=='binding'">{{mem.group.name}}
             - {{mem.group.level}}</a>
+          <a class="btn btn-primary m-1" *ngFor="let mem of memberships" [routerLink]="['/reserve/', mem.group.id]"
+            [hidden]="mem.status=='active'">تجديد الاشتراك: ({{mem.group.name}}
+            - {{mem.group.level}})</a>
+
         </div>
       </div>
-      <a *ngIf="can_edit!='true'" class=" btn btn-primary m-1 float-right" [routerLink]="['/update-student', student.id]">تعديل
+      <a *ngIf="can_edit!='true'" class=" btn btn-primary m-1 float-right"
+        [routerLink]="['/update-student', student.id]">تعديل
         الملف
         الشخصي</a>
     </div>
