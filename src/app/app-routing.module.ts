@@ -25,6 +25,7 @@ import { AddadminComponent } from './components/admin/superuser/addadmin/addadmi
 import { ForgetpasswordComponent } from './components/Authentication/forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './components/Authentication/resetpassword/resetpassword.component';
 import { TodayGroupsComponent } from './components/admin/admin-reservation/today-groups/today-groups.component';
+import { EndedReservationComponent } from './components/admin/admin-reservation/ended-reservation/ended-reservation.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'forget-password', component: ForgetpasswordComponent },
   { path: 'reset-password', component: ResetpasswordComponent },
   { path: 'today-groups', component: TodayGroupsComponent },
+  { path: 'ended-groups', component: EndedReservationComponent },
 
 
 

@@ -33,6 +33,7 @@ import { ManageadminComponent } from './components/admin/superuser/manageadmin/m
 import { ForgetpasswordComponent } from './components/Authentication/forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './components/Authentication/resetpassword/resetpassword.component';
 import { TodayGroupsComponent } from './components/admin/admin-reservation/today-groups/today-groups.component';
+import { EndedReservationComponent } from './components/admin/admin-reservation/ended-reservation/ended-reservation.component';
 
 @NgModule({
   imports: [
@@ -75,6 +76,7 @@ import { TodayGroupsComponent } from './components/admin/admin-reservation/today
     ForgetpasswordComponent,
     ResetpasswordComponent,
     TodayGroupsComponent,
+    EndedReservationComponent,
   ],
 
   providers: [],
