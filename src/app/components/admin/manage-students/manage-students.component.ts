@@ -28,9 +28,9 @@ export class ManageStudentsComponent implements OnInit {
   ngOnInit(): void {
     // get-stated-memberships/binding
     this._http.get(`http://127.0.0.1:8000/membership`).subscribe((data) => {
-      console.log(data);
 
       this.memberships = data
+      console.log(data);
 
     }, (err) => console.log(err))
 
@@ -47,9 +47,18 @@ export class ManageStudentsComponent implements OnInit {
 
 
   deleteMembership(_id: number) {
-    this._apiMembershipService.deleteMembership(_id).subscribe((res) => {
-      this.reload()
-    }, (err) => { console.log(err) })
+    this._apiMembershipService.getSpecificMembership(_id).subscribe((res) => {
+      this.membership = res
+      const formData2 = new FormData()
+      this.newCapacity = <number>this.membership.group.capacity + 1
+      formData2.append('capacity', this.newCapacity)
+      this._http.patch(`http://127.0.0.1:8000/course-group/${this.membership.group.id}/`, formData2).subscribe(res => this.reload(),
+        err => console.log(err))
+      this._apiMembershipService.deleteMembership(_id).subscribe((res) => {
+        this.reload()
+      }, (err) => { console.log(err) })
+
+    }, (err) => console.log(err))
   }
 
   changeStatus() {
@@ -66,8 +75,6 @@ export class ManageStudentsComponent implements OnInit {
   activate(_id: number) {
     this._apiMembershipService.getSpecificMembership(_id).subscribe((res) => {
       this.membership = res
-
-      console.log(this.membership.group.capacity - 1)
       const formData = new FormData()
       formData.append('status', "active")
       this._http.patch(`http://127.0.0.1:8000/membership/${this.membership.id}/`, formData).subscribe(res => this.reload(),

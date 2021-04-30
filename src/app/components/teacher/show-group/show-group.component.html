@@ -7,9 +7,6 @@
         <h5 class="card-title">أ\{{group.teacher.name}}</h5>
         <p class="card-text">المواعيد: {{group.schedule}}</p>
         <p class="card-text"> موعد البدء: {{group.start_date}}</p>
-      </div> 
-
-      
       <div>
       <h4>تعديل موعد المجموعة</h4>
       <form [formGroup]="myform">
@@ -28,6 +25,7 @@
           <button (click)="update_timedate()" type="button" class="btn btn-outline-info">تاكيد التغيير</button>
           </form>
       </div>
+      </div> 
     </div>
     
     <div class="col-lg-8">
@@ -49,7 +47,9 @@
         <div class="mb-3 ml-3">
           <div class="media" *ngFor="let post of posts">
             <div class="media-body">
+
               <h4 class="media-heading bg-light">{{post.title}}  <i (click)="delete(post.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i></h4>
+
               <p class="text-left">
                 {{post.content}}
               </p>
