@@ -20,9 +20,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 my-5">
-      <a *ngIf="is_super==true" class="btn btn-info" [routerLink]="['/manage-admin']"> <i
-          class="fas fa-users-cog"></i>&nbsp;&nbsp;
+    <div class="col-md-6 my-5" [hidden]="!is_super">
+      <a class="btn btn-info" [routerLink]="['/manage-admin']"> <i class="fas fa-users-cog"></i>&nbsp;&nbsp;
         ادارة
         اعضاء فريق الادارة </a>
     </div>

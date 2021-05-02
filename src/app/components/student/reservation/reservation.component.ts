@@ -22,6 +22,9 @@ export class ReservationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!JSON.parse(<string>localStorage.getItem("isLoggedIn"))) {
+      this._router.navigate(['/login'])
+    }
   }
 
   onFileselected(event: any) {
