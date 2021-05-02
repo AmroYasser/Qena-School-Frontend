@@ -1,26 +1,24 @@
 <div class="container-fluid mb-3">
-    <h2 class="text-center">ادارة الحجوزات المنتهية</h2>
+  <h2 class="text-center">ادارة الحجوزات المنتهية</h2>
 
-    <table class="table table-bordered table-hover text-center mt-5">
-        <thead>
-            <tr>
-                <th>الاسم</th>
-                <th>اسم المدرس</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let g of groups" [hidden]="g.session_num > 0">
-                <td>{{g.name}}</td>
-                <td>{{g.teacher.name}}</td>
-                <td><button class="btn btn-primary" (click)="renew(g.id)">تجديد</button></td>
-                <td><i (click)="deleteGroup(g.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i></td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="clearfix">
-        <a [routerLink]="['/admin-home']" class="btn btn-info float-right">صغحة ادارة الموقع</a>
-    </div>
-
-
+  <table class="table table-bordered table-hover text-center mt-5">
+    <thead>
+      <tr>
+        <th>الاسم</th>
+        <th>اسم المدرس</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let g of groups" [hidden]="g.session_num > 0">
+        <td>{{g.name}}</td>
+        <td>{{g.teacher.name}}</td>
+        <td><button class="btn btn-primary" (click)="renew(g.id)">تجديد</button></td>
+        <td><i (click)="deleteGroup(g.id)" style="color:red;font-size:30px;" class="fas fa-trash"></i></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="clearfix">
+    <a [routerLink]="['/admin-home']" class="btn btn-info float-right">صغحة ادارة الموقع</a>
+  </div>
 </div>
