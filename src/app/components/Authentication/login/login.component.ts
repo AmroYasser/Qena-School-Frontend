@@ -56,18 +56,11 @@ export class LoginComponent implements OnInit {
           this.loginserv.get_admin_user(data.id).subscribe(
             (res) => {
               this.loginserv.current_admin = res
-              console.log(res);
               localStorage.setItem('admin_id', this.loginserv.current_admin.id)
               localStorage.setItem('is_admin', 'true')
               console.log(localStorage.getItem('admin_id'))
 
-              if (res.manager == null) {
-                this.router.navigate(['/admin-home'])
-              }
-              else {
-
-                this.router.navigate(['/admin-home'])
-              }
+              this.router.navigate(['/admin-home'])
 
 
             },
