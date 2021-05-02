@@ -19,15 +19,13 @@
         <td>{{g.session_num}}</td>
         <td>{{g.next_session_time}}</td>
         <td><input type="text" class="form-control" #val name="link" id="link"></td>
-        <td><input class="btn btn-primary" [disabled]="g.session_num==0" (click)="sendMails(g.id,val.value)" type="submit" name="link" id="link" value="ارسال">
+        <td><input class="btn btn-primary" [disabled]="g.session_num==0" (click)="sendMails(g.id,val.value)"
+            type="submit" name="link" id="link" value="ارسال">
         </td>
       </tr>
     </tbody>
   </table>
-  <div class="clearfix">
-    <a [routerLink]="['/create-group']" class="btn btn-success float-left">اضف مجموعة جديدة</a>
-    <a [routerLink]="['/admin-home']" class="btn btn-info float-right">صغحة ادارة الموقع</a>
-  </div>
+  <a [routerLink]="['/admin-home']" class="btn btn-info">صفحة ادارة الموقع</a>
 
 
 </div>

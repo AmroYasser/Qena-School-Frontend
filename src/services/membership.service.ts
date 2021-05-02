@@ -33,7 +33,7 @@ export class MembershipService {
         'Accept': '*/*'
       })
     };
-    return this._http.put<Imembership>(`http://127.0.0.1:8000/membership/${_id}/`, membership, httpOptions);
+    return this._http.patch<Imembership>(`http://127.0.0.1:8000/membership/${_id}/`, membership);
   }
 
   deleteMembership(_id: number) {

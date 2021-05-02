@@ -7,6 +7,7 @@ import { GroupService } from 'src/services/group.service';
 import { MembershipService } from 'src/services/membership.service';
 import { StudentsService } from 'src/services/students.service';
 import { TeachersService } from 'src/services/teachers.service';
+import { IUser } from 'src/models/interfaces/iuser';
 
 @Component({
   selector: 'app-manage-students',
@@ -26,14 +27,27 @@ export class ManageStudentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // get-stated-memberships/binding
-    this._http.get(`http://127.0.0.1:8000/membership`).subscribe((data) => {
+    if (JSON.parse(<string>localStorage.getItem("isLoggedIn"))) {
+      const formDate2 = new FormData();
+      formDate2.append('jwt_token', <string>localStorage.getItem('jwt_token'))
+      this._http.post('http://127.0.0.1:8000/auth/user', formDate2, { withCredentials: true }).subscribe((res) => {
+        let data = <IUser>res
+        if (data.role == "admin") {
+          this._http.get(`http://127.0.0.1:8000/membership`).subscribe((data) => {
 
-      this.memberships = data
-      console.log(data);
+            this.memberships = data
+            console.log(data);
 
-    }, (err) => console.log(err))
-
+          }, (err) => console.log(err))
+        }
+        else {
+          this._router.navigate(['/login'])
+        }
+      }, (err) => { this._router.navigate(['/login']) })
+    }
+    else {
+      this._router.navigate(['/login'])
+    }
   }
 
   ngAfterViewInit() {
@@ -75,6 +89,7 @@ export class ManageStudentsComponent implements OnInit {
   activate(_id: number) {
     this._apiMembershipService.getSpecificMembership(_id).subscribe((res) => {
       this.membership = res
+      console.log(this.membership)
       const formData = new FormData()
       formData.append('status', "active")
       this._http.patch(`http://127.0.0.1:8000/membership/${this.membership.id}/`, formData).subscribe(res => this.reload(),
@@ -85,19 +100,20 @@ export class ManageStudentsComponent implements OnInit {
       this._http.patch(`http://127.0.0.1:8000/course-group/${this.membership.group.id}/`, formData2).subscribe(res => this.reload(),
         err => console.log(err))
 
-      this._apiMembershipService.updateMembership(this.membership, _id).subscribe((res) => {
+      //send mail after activation done
+      const formData3 = new FormData()
+      formData3.append('email', this.membership.student.user.email)
+      formData3.append('name', this.membership.student.name)
+      formData3.append('course', this.membership.group.name)
+      formData3.append('teacher', this.membership.group.teacher.name)
+      this._http.post('http://127.0.0.1:8000/auth/confirm-booking', formData3).subscribe(res => console.log(res), err => console.log(err)
+      )
 
-        //send mail after activation done
-        const formData = new FormData()
-        formData.append('email', this.membership.student.user.email)
-        formData.append('name', this.membership.student.name)
-        formData.append('course', this.membership.group.name)
-        formData.append('teacher', this.membership.group.teacher.name)
-        this._http.post('http://127.0.0.1:8000/auth/confirm-booking', formData).subscribe(res => console.log(res), err => console.log(err)
-        )
+      this.reload()
+      // this._apiMembershipService.updateMembership(this.membership, _id).subscribe((res) => {
 
-        this.reload()
-      })
+
+      // })
     }, (err) => { console.log(err) })
   }
 

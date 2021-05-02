@@ -68,3 +68,6 @@
     .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
         background-color: #2b96c0 !important;
     }
+.cur{
+  cursor: pointer;
+}

@@ -1,26 +1,41 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 my-5">
-      <a class="btn btn-info" [routerLink]="['/manage-teachers/']">ادارة المدرسين</a>
+      <a class="btn btn-info" [routerLink]="['/manage-teachers/']"> <i
+          class="fas fa-chalkboard-teacher"></i>&nbsp;&nbsp; ادارة المدرسين </a>
     </div>
     <div class="col-md-6 my-5">
-      <a class="btn btn-info" [routerLink]="['/manage-groups-data/']">ادارة المجموعات</a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 my-5">
-      <a class="btn btn-info" [routerLink]="['/manage-student/']">ادارة الاشتراكات</a>
-    </div>
-    <div class="col-md-6 my-5">
-      <a class="btn btn-info" [routerLink]="['/manage-students/']">ادارة الطلاب</a>
+      <a class="btn btn-info" [routerLink]="['/manage-groups-data/']"><i class="fas fa-users"></i>&nbsp;&nbsp; ادارة
+        المجموعات</a>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6 my-5">
-      <a *ngIf="is_super==true" class="btn btn-info" [routerLink]="['/manage-admin']">ادارة اعضاء فريق الادارة</a>
+      <a class="btn btn-info" [routerLink]="['/manage-student/']"> <i class="fas fa-user-plus"></i> &nbsp;&nbsp; ادارة
+        الاشتراكات</a>
     </div>
     <div class="col-md-6 my-5">
-      <a class="btn btn-info" [routerLink]="['/today-groups']">ادارة مجموعات اليوم</a>
+      <a class="btn btn-info" [routerLink]="['/manage-students/']"> <i class="fas fa-user-graduate"></i>&nbsp;&nbsp;
+        ادارة الطلاب</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 my-5">
+      <a *ngIf="is_super==true" class="btn btn-info" [routerLink]="['/manage-admin']"> <i
+          class="fas fa-users-cog"></i>&nbsp;&nbsp;
+        ادارة
+        اعضاء فريق الادارة </a>
+    </div>
+    <div class="col-md-6 my-5">
+      <a class="btn btn-info" [routerLink]="['/today-groups']"> <i class="fas fa-business-time"></i> &nbsp;&nbsp; ادارة
+        مجموعات اليوم</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 my-5">
+      <a class="btn btn-info" [routerLink]="['/ended-groups']"> <i class="fas fa-battery-empty"></i> &nbsp;&nbsp;
+        ادارة
+        الحجوزات المنتهية</a>
     </div>
   </div>
 </div>
